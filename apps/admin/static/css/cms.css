@@ -1,0 +1,25 @@
+.image-wrap {
+    border-radius: 30em 30em 30em 30em;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 5px rgba(0, 0, 0, 0.6) inset, 0 1px 0 rgba(0, 0, 0, 0.6) inset;
+   margin-right: 10px;
+}
+.box {
+    border-top: 1px solid #CCCCCC;
+    margin: 0 0 20px;
+    width:110px;
+}
+.cutout {
+    background: none repeat scroll 0 0 #222222;
+    border-radius: 10px 10px 10px 10px;
+    color: #FFFFFF;
+    padding: 10px 10px 10px;
+}
+
+.cmswell {
+    padding: 19px;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset;
+    overflow: hidden; 
+}

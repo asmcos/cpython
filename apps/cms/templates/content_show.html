@@ -1,0 +1,18 @@
+{{extend "cms_head.html"}}
+{{block content}}
+
+
+ <div class="boxed-group">
+    <h3>{{=content_info.title}}</h3>
+    <div class="boxed-group-inner markdown-body">
+ 
+
+	{{<<content_info.content}}
+
+    </div>
+ </div>
+
+
+
+
+{{end}}

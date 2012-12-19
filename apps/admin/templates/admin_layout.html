@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{{block html_tag}}<html>{{end}}
+  <head>
+    {{block meta}}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {{end}}
+    <title>{{block title}}{{end}}</title>
+    <!-- toplinks -->
+    {{use "bootstrap"}}
+    <link href="https://github.com/assets/github-bd7a9aac1964f57509ff6d9dbddc6e086343bca4.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="https://github.com/assets/github2-8fa43eb7ec103bd3bf79be09cf64db52d75c244f.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+      <link href="https://github.com/assets/styleguide-c5a62d5b9dd0e66af3d9450ae6589eeb5ca68db1.css" media="screen" rel="stylesheet" type="text/css" />
+
+    <script src="https://github.com/assets/frameworks-eee761b9d5e06efb064aaaf528c44ef8e1601e71.js" type="text/javascript"></script>
+    <script src="https://github.com/assets/github-e2238760e924ccb9d1992d97a62b75eef6f3bc8b.js" type="text/javascript"></script>
+<!--jquery upload file -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="/static/js/vendor/jquery.ui.widget.js"></script>
+<script src="/static/js/jquery.iframe-transport.js"></script>
+<script src="/static/js/jquery.fileupload.js"></script>
+<script type="text/javascript" src="/static/xheditor/xheditor-1.1.12-zh-cn.min.js"></script>
+
+
+    {{block _css}}{{end}}
+  </head>
+
+{{block body_tag}}<body class="bootstrap-body">{{end}}
+
+{{block before_header}}{{end}}
+
+{{block header}}
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="/">{{block project}}Jeapedu CMS{{end}}</a>
+      <div class="nav-collapse">
+        {{block nav}}
+        <ul class="nav">
+          <li class="active"><a href="#">Home</a></li>
+        </ul>
+        {{end}}
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+{{end}}
+    
+<div class="container">
+    <div class="content-outter">
+      <div class="content-container">
+        {{block content}}
+        {{end}}
+      </div>
+    </div>
+</div>
+
+{{block js_script}}
+{{end}}
+
+{{block footer_container}}
+<div class="container">
+  <footer class="row">
+  {{block footer}}
+    Jeapedu cms 项目大作业
+  {{end}}
+  </footer>
+</div>
+{{end footer_container}}
+
+{{block after_footer}}{{end}}
+
+  </body>
+</html>

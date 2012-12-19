@@ -1,0 +1,84 @@
+{{extend "head.html"}}
+
+{{block content}}
+<div class="panel">
+
+<div class="tabbable tabs-left"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li><a href="#tab1" data-toggle="tab">站点管理</a></li>
+    <li class="active"><a href="#tab2" data-toggle="tab">栏目管理</a></li>
+    <li><a href="#tab3" data-toggle="tab">用户管理</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane" id="tab1">
+	{{<<siteform}}
+	<div>
+	如果需要上传本地logo图片，点击这里
+ 	<input id="fileuploadlogo" type="file" name="files" >
+	</div>
+    </div>
+    <div class="tab-pane " id="tab3">
+	所有的用户
+    </div>
+    <div class="tab-pane active" id="tab2">
+	{{block category_content}}
+	<div class="tabbable "> <!-- Only required for left/right tabs -->
+	  <ul class="nav nav-tabs">
+   	 <li class="active"><a href="#catetab1" data-toggle="tab">栏目列表</a></li>
+    	<li><a href="#catetab2" data-toggle="tab">新建栏目</a></li>
+  	</ul>
+  	<div class="tab-content">
+    	<div class="tab-pane active" id="catetab1">
+	<table class="table table-condensed">
+	<thead>
+    		<tr>
+		<td>序号</td>
+		<td>栏目名称</td>
+		<td>内容个数</td>
+		<td>#</td>
+		<td>#</td>
+		</tr>
+	</thead>
+	<tbody>
+	{{for n in category_all:}}
+	<tr>
+		<td><input class="input-mini" type="text" placeholder=".input-mini" value={{=n.id_order}}></td>
+		<td>{{=n.name}} </td>
+		<td>{{=n.num}}</td>
+		<td><a href="/admin/category_list/{{=n.id}}">查看内容</a> </td>
+		<td><a href="/admin/category_del/{{=n.id}}">删除内容</a> </td>
+	</tr>
+	{{pass}}
+	</tbody>
+	</table>
+    	</div>
+    	<div class="tab-pane" id="catetab2">
+		{{<<categoryform}}
+	    </div>
+  	</div>
+	</div>
+
+
+	{{end}}
+    </div>
+  </div>
+</div>
+</div> <!--panel-->
+
+
+{{end}}
+
+{{block js_script}}
+<script>
+$(function () {
+    $('#fileuploadlogo').fileupload({
+        dataType: 'json',
+        url: '/admin/upload',
+        done: function (e, data) {
+                document.getElementById('field_logo').value=data.result.url
+        }
+    });
+});
+
+</script>
+
