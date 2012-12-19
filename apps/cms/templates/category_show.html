@@ -1,7 +1,7 @@
 {{extend "cms_head.html"}}
 {{block content}}
 
-{{from cms.views import subString}}
+{{from cms.views import subString,htotext}}
 
  <div class="boxed-group">
     <h3>{{=cate_info.name}}</h3>
@@ -18,7 +18,7 @@
    </div> 
    <div style="position:relative;left:20px;margin-left: 20px">
 	<span><a href=/content_show/{{=n.id}}> {{=n.title}}</a></span></p>
-        {{=subString(n.content,150)}}...
+        {{=subString(htotext(n.content),150)}}...
    </div>
 </div>
 {{pass}}

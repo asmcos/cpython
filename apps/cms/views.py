@@ -1,7 +1,7 @@
 #coding=utf-8
 from uliweb import expose, functions
 from models import *
-
+from HTMLParser import HTMLParser
 
 @expose('/')
 def index():
@@ -65,3 +65,13 @@ def subString(string,length):
         else:  
             i = p  
     return string[0:i]  	
+
+def htotext(html):
+	html=html.strip()
+	result=[]
+	parse = HTMLParser()
+	parse.handle_data=result.append
+	parse.feed(html)
+	parse.close()
+	return "".join(result)
+
