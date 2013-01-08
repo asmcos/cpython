@@ -72,9 +72,12 @@ def subString(string,length):
 def htotext(html):
 	html=html.strip()
 	result=[]
-	parse = HTMLParser()
-	parse.handle_data=result.append
-	parse.feed(html)
-	parse.close()
-	return "".join(result)
+	try:
+		parse = HTMLParser()
+		parse.handle_data=result.append
+		parse.feed(html)
+		parse.close()
+		return "".join(result)
+	except:
+		return html
 
