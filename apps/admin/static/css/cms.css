@@ -23,3 +23,455 @@
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset;
     overflow: hidden; 
 }
+
+/*from udacity*/
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: normal;
+	}
+	h1{
+		font-size: 20px;
+		color: #4d4d4d;
+	}
+	h2{
+		font-size: 12px;
+		color: #666666;
+	}
+	a, a:link, a:active, a:visited, .link{
+		color: #2685aa;
+	}
+	.link{
+		text-decoration: none;
+		font-weight: bold;
+	}
+	a .link:hover{
+		text-decoration: underline;
+	}
+	#top_bin{
+		height: 40px;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		background-color: #FCFCFC;
+		border-bottom: solid 1px #CCC;
+		z-index: 1;
+	}
+	#top_content{
+		width:100%;
+		max-width:940px;
+		margin: 0 auto;
+	}
+	#content-background{
+		padding-top:40px;
+	}
+	.cropped-logo{
+		margin-top: -70px;
+		overflow: hidden;
+		float: left;
+		display: none;
+		text-align: center;
+		height: 111px;
+		margin-left: 1px;
+		margin-right: 1px;
+		width: 160px;
+		background-color: #FCFCFC;
+	}
+	.cropped-logo img{
+		position: relative;
+	}
+	.cropped-logo img:hover{
+		cursor: pointer;
+	}
+	/* SPLASH STYLES */
+	.l-dyn-logo{
+		width: 940px;
+		position: relative;
+		margin: 0 auto;
+	}
+	.dyn-logo{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.dyn-logo-img{
+		position: absolute;
+		left: 50%;
+		margin-left: -479px;
+		z-index: 3;
+		width: 160px;
+		text-align: center;
+		background-color: #FCFCFC;
+		margin-top: 20px;
+		height: 123px;
+	}
+	.dyn-logo-img>img{
+		position: relative;
+	}
+	.dyn-logo-spacer{
+		height: 103px;
+		width:160px;
+		background-color: #fcfcfc;
+		border: solid 1px #cccccc;
+		border-top: none;
+	}
+	.dyn-logo-contain{
+		width: 960px;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		z-index:4;
+	}
+	.l-splash{
+		width:100%;
+	}
+	.splash{
+		background-color: #f5f5f5;
+		border-bottom: solid 1px #e6e6e6;
+		border-top: solid 1px #cccccc;
+		height: 320px;
+	}
+	.splash-components{
+		width: 960px;
+		margin: 20px auto;
+		*zoom: 1;
+	}
+	.splash-components:before,
+	.splash-components:after{
+			display: table;
+			content: "";
+			line-height: 0;
+	}
+	.splash-components:after{
+			clear: both;
+	}
+	.splash-component{
+		float: left;
+		margin-left: 15px;
+	}
+	.hero-img.splash-component{
+		width: 350px;
+	}
+	.tag-line{
+		width: 200px;
+		margin-top: 120px;
+	}
+	.tag-line-text{
+		padding: 10px 0;
+		font-weight: bold;
+	}
+	.tag-line-subtext{
+		padding: 0 0 20px 0;
+		font-size: 16px;
+	}
+	.tag-line-more{
+		font-size: 12px;
+	}
+	.hero-img{
+		background-color: #FCFCFC;
+		-webkit-box-shadow:  5px 5px 10px 0px #cccccc;
+		box-shadow:  5px 5px 10px 0px #cccccc;
+		/* For IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#cccccc')";
+		/* For IE 5.5 - 7 */
+		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#cccccc');
+	}
+	.hero-img a:hover{
+		text-decoration: none;
+	}
+	
+	.hero-img img{
+		height: 220px;
+		width: 350px;
+	}
+	.hero-img-desc{
+		display: block;
+		padding: 10px 10px 20px 10px;
+		font-size: 12px;
+		font-weight: normal;
+		color: #808080;
+	}
+	/* END OF SPLASH STYLES */
+
+	/* COURSE CATALOG STYLES */
+	.l-crs-cat{
+		width: 940px;
+		margin: 0 auto 40px auto;
+		*zoom: 1;
+	}
+	.l-crs-cat:before,
+	.l-crs-cat:after{
+			display: table;
+			content: "";
+			line-height: 0;
+	}
+	.l-crs-cat:after{
+			clear: both;
+	}
+
+	.crs-cat h1{
+		color: #666666;
+		padding-left: 15px;
+	}
+	.crs-lst{
+		float:left;
+		padding: 0 0 10px 10px;
+	}
+	.crs-lst h2{
+		padding: 5px 0 5px 10px;
+		color: #b3b3b3;
+		font-size: 14px;
+	}
+	.crs-lst-beg{
+		width: 282px;
+	}
+	.crs-lst-intermed{
+		width: 284px;
+		border-left: solid 1px #e6e6e6;
+		border-right: solid 1px #e6e6e6;
+	}
+	.crs-lst-adv{
+		width: 282px;
+	}
+
+	.crs{
+		width: 202px;
+		display: block;
+		float: left;
+		min-height: 45px;
+		margin: 0 10px 10px 0;
+		padding: 10px;
+	}
+	.crs:hover{
+		background-color: #f5f5f5;
+	}
+	.crs-icon{
+		display: block;
+		float: left;
+		width: 50px;
+		margin-right: 5px;
+		padding: 5px;
+	}
+	.crs-title{
+		font-size: 13px;
+		display: block;
+		float: left;
+		clear: right;
+		width: 135px;
+		padding-top: 5px;
+	}
+	.crs-coming-soon{
+		font-size: 12px;
+		color: #b8b8b8;
+		display: block;
+		font-weight: normal;
+		font-style: italic;
+		
+	}
+	.ui-dialog{
+		position: relative;
+	} 
+	.ui-dialog .ui-dialog-content{
+		overflow:hidden;
+	}
+	/* END COURSE CATALOG STYLES */
+
+
+.l-course-overview-deets hr {
+    clear: none;
+}
+.l-course-overview-header {
+    margin-bottom: 10px;
+    position: relative;
+}
+.l-course-overview-right-col, .l-course-overview-left-col {
+    margin: 0;
+    padding: 0;
+    width: 380px;
+}
+.l-course-overview-left-col {
+    float: left;
+}
+.l-course-overview-right-col {
+    float: right;
+}
+.course-desc-left{
+    float: left;
+    width: 380px;
+}
+.course-list-right {
+    float: right;
+    width: 380px;
+}
+
+.coursebg {
+    	padding: 50px 50px 50px 50px;
+	background: url(websbook.jpg) 0 top;
+	width: 700px;
+	height: 365px;
+	font-size: 24px;
+	color: #fff;
+}
+
+.l-course {
+    padding: 20px 20px 20px 20px;
+    height: 339px;
+    width: 858px;
+}
+
+.l-splash-video {
+    padding: 20px 20px 20px 20px;
+    height: 539px;
+    width: 858px;
+}
+.l-course-overview-description {
+    width: 380px;
+}
+.l-course-overview-instructors {
+    padding: 20px 20px 20px 20px;
+    float: right;
+    width: 380px;
+    z-index: 2;
+}
+.l-course-overview-syllabus {
+    float: right;
+    width: 508px;
+    z-index: 1;
+}
+.course-icon-desc-container {
+    overflow: auto;
+}
+.course-overview-header img.course-icon {
+    float: left;
+    margin: 8px 10px 5px 0;
+}
+.course-overview-header > h1, .course-overview-header > h2, .course-overview-header > p, .course-overview-header > a {
+    margin-left: 70px;
+}
+.course-overview-above-video {
+    margin-top: 5px;
+    overflow: auto;
+    text-align: right;
+    width: 960px;
+}
+.course-overview-enroll {
+    float: left;
+    text-align: left;
+}
+.course-overview-enroll p {
+    margin: 0;
+}
+.splash-video {
+    background-color: #cccccc;
+    border: 1px solid #DCDCDC;
+}
+.course-overview-description {
+    min-height: 150px;
+}
+.course-overview-description-body {
+    margin-right: 170px;
+}
+.course-overview-description-enroll {
+    float: right;
+    width: 178px;
+}
+.course-overview-description-enroll > a.button {
+    -moz-box-sizing: border-box;
+    margin-bottom: 10px;
+    width: 150px;
+}
+.course-overview-description-body p {
+    font-size: 1.4em;
+}
+.course-overview-give-get {
+    background-color: #F4F4F4;
+    border: 1px solid #DCDCDC;
+    float: left;
+    margin-top: 15px;
+    width: 380px;
+    z-index: 2;
+}
+.course-overview-give-get > hr {
+    margin: 0;
+    padding: 0;
+}
+.course-overview-give > p, .course-overview-get > p {
+    margin-bottom: 14px;
+    margin-top: 0;
+}
+.course-overview-give, .course-overview-get {
+    float: left;
+    padding: 10px 0 10px 10px;
+    width: 209px;
+}
+.course-overview-give-get-heading > h2 {
+    color: #575757;
+    font-weight: bold;
+}
+.course-overview-give-get-heading > p {
+    font-size: 1.6em;
+    margin: 0;
+}
+.course-overview-instructors {
+    background-color: #FFFFFF;
+    border: 1px solid #DCDCDC;
+}
+.course-overview-instructor {
+    float: left;
+    padding: 20px 0 20px 20px;
+    width: 210px;
+}
+.course-overview-instructors-single .course-overview-instructor {
+    width: 380px;
+}
+.course-overview-instructor-headshot {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+.course-overview-instructor-title {
+    font-size: 1.6em;
+    margin: 0 0 7px;
+}
+.course-overview-instructor-name {
+    color: #575757;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+.course-overview-syllabus {
+    margin-top: 20px;
+}
+.course-overview-syllabus > h1, .course-overview-syllabus > h2, .course-overview-syllabus > h3, .course-overview-syllabus > ul, .course-overview-syllabus > p, .course-overview-syllabus > ul .course-overview-syllabus > div, .course-overview-syllabus > a, .course-overview-syllabus > span {
+    padding-left: 27px;
+}
+.course-overview-syllabus ul > h2 {
+    margin-top: 20px;
+}
+.course-overview-syllabus p {
+    margin-top: 0;
+}
+.course-overview-syllabus li p {
+    font-size: 1.2em;
+}
+.overviewButtons a {
+    width: 122px;
+}
+.overview-social-bin {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    width: 350px;
+}
+.overview-social-google {
+    float: right;
+    width: 72px;
+}
+.overview-social-twitter {
+    float: right;
+    margin-right: 2px;
+    width: 102px;
+}
+.overview-social-facebook {
+    float: right;
+    margin-right: 14px;
+    width: 128px;
+}

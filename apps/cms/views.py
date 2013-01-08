@@ -23,7 +23,10 @@ def category_show(id):
 	cate        = category.all()
 	cate_info = category.get(category.c.id==id)
 	cate_list = content.filter(content.c.cateid == id)
+	if cate_info.temp != "":
+		response.template = cate_info.temp
 	return {'site':site,'cate':cate,'cate_list':cate_list,'cate_info':cate_info}
+
 
 @expose('/content_show/<id>')
 def content_show(id):

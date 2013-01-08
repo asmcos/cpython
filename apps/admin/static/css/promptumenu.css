@@ -1,0 +1,33 @@
+.promptumenu_nav{
+	z-index: 5;
+	position: absolute;
+	bottom:5px;
+	left: 50%;
+	margin-right: -50%;
+}
+.promptumenu_window{
+	/*cursor: url(hand.ico), move;
+	background: #EEE;
+	border: solid 1px #333333;
+	border-radius: 15px;
+	-webkit-border-radius: 15px; */
+	margin: 10px;
+	position: relative;
+}
+.promptumenu_nav a{
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	text-indent: -9999px;
+	outline: none;
+	background: url(navbg.png) -24px  top;
+	display: block;
+	float: left;
+	position: relative;
+	left: -50%;
+	margin: 0 2px;
+}
+.promptumenu_nav a.active{
+	background: url(navbg.png) -48px top;
+}
+
