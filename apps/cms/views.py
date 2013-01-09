@@ -35,6 +35,20 @@ def content_show(id):
 	content_info = content.get(content.c.id==id)
 	return {'site':site,'cate':cate,'content_info':content_info}
 
+@expose('/onlinecode_all')
+def onlinecode_all():
+	site        = siteinfo.get(siteinfo.c.id == 1)
+	cate        = category.all()
+	online      = onlinecode.all()
+	return {'site':site,'cate':cate,'online':online}
+
+
+@expose('/onlinecode_show/<id>')
+def onlinecode_show(id):
+	site        = siteinfo.get(siteinfo.c.id == 1)
+	cate        = category.all()
+	onlinecode_info = onlinecode.get(onlinecode.c.id==id)
+	return {'site':site,'cate':cate,'onlinecode_info':onlinecode_info}
 
 
 def subString(string,length):  

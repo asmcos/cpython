@@ -23,3 +23,11 @@ class contentForm(Form):
         content  = TextField(label="内容",required=True,rows=10,cols=60)
         image    = StringField(label="图片")
 
+class onlinecodeForm(Form):
+        id_order = StringField(label="排序",default=0)
+        cateid   = StringField(label="栏目序号",default=0)
+        title    = StringField(label="标题",required=True)
+        code     = StringField(label="代码地址",required=True)
+        content  = TextField(label="内容",required=True,rows=10,cols=60)
+        image    = StringField(label="图片")
+

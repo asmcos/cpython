@@ -77,6 +77,31 @@ def content_new():
 			cate.save()
 	return redirect('/admin/category_list/'+str(id))
 
+@expose('/admin/onlinecode_list')
+def onlinecode_list():
+	if require_login():
+		return redirect(url_for(login))	
+	onlinecode_form = onlinecodeForm(action='/admin/onlinecode_new')
+	if request.method == 'GET':
+		cate_list = onlinecode.all()
+	return {'cate_list':cate_list,'onlinecode_form':onlinecode_form}
+
+
+
+@expose('/admin/onlinecode_new')
+def onlinecode_new():
+	if require_login():
+		return redirect(url_for(login))	
+	if request.method == 'POST':
+		form = onlinecodeForm()
+             	flag = form.validate(request.params)
+		if flag:
+			n = onlinecode(**form.data)
+			id = n.cateid
+			n.save()
+	return redirect('/admin/onlinecode_list')
+
+
 
 @expose('/admin/category_del/<id>')
 def category_del(id):
@@ -116,6 +141,37 @@ def content_del(id):
 	if c:
 		c.delete()
 	return redirect('/admin')
+
+@expose("/admin/onlinecode_edit/<id>")
+def onlinecode_edit(id):
+	if require_login():
+		return redirect(url_for(login))	
+	if request.method == 'GET':
+		c = onlinecode.get(onlinecode.c.id == int(id))
+		if c is None:
+			return redirect('/admin')
+		form = onlinecodeForm(data={'cateid':c.cateid,'title':c.title,'id_order':c.id_order,\
+					'content':c.content,'image':c.image,'code':c.code})
+		return {'form':form,"name":c.title}
+	if request.method == 'POST':
+		form = onlinecodeForm()
+             	flag = form.validate(request.params)
+		if flag:
+			n = onlinecode(**form.data)
+			n.id = int(id)
+			id = n.cateid
+			n.save()
+	return redirect('/admin/onlinecode_list')
+
+@expose('/admin/onlinecode_del/<id>')
+def onlinecode_del(id):
+	if require_login():
+		return redirect(url_for(login))
+	c = onlinecode.get(onlinecode.c.id == int(id))
+	if c:
+		c.delete()
+	return redirect('/admin')
+
 
 ###########################
 @expose('/admin/upload')

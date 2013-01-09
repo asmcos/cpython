@@ -25,5 +25,13 @@ class content(Model):
 	image    = Field(str, max_length=255)
 
 
+class onlinecode(Model):
+	id_order = Field(int)
+	cateid   = Field(int)
+	title    = Field(str, max_length=255)
+	content  = Field(TEXT)
+	code     = Field(str,max_length=4096)
+	image    = Field(str, max_length=255)
+
 
 
