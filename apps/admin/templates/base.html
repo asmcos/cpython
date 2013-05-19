@@ -1,0 +1,38 @@
+<html>
+<head>
+<title> 编程公园---python（CMS）</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+  <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/static/css/docs.css" rel="stylesheet">
+
+    <link href="/static/css/cms.css" rel="stylesheet">
+
+
+</head>
+<div class="container">
+  <div class="row">
+    <div class="span3 bs-docs-sidebar">
+	<ul class="nav nav-list bs-docs-sidenav affix">
+	  <li><a href="/admin"><i class="icon-chevron-right"></i> 站点信息</a></li>
+	 {{for n in cates:}}
+          <li><a href="/admin/category/{{=n.id}}"><i class="icon-chevron-right"></i>{{=n.name}}</a></li>
+	 {{pass}}
+          <li><a href="/admin/category/new"><i class="icon-chevron-right"></i>添加栏目</a></li>
+         </ul>
+     </div> <!--span3-->
+ <div class="span9">
+{{block content}}
+
+
+{{end content}}
+  </div> <!--span9-->
+  
+
+  </div> <!--row-->
+</div> <!--container-->
+
+
+</html>

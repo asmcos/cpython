@@ -1,186 +1,95 @@
 #coding=utf-8
-from uliweb import expose, function
-from cms.models import *
-from forms import *
-require_login = function('require_login')
+from uliweb import expose, functions
+from models import *
+from forms  import *
+
+def common():
+	cates     = category.all()
+	return cates
 
 
 @expose('/admin')
-def admin():
-	if require_login():
-		return redirect(url_for(login))	
-	if request.method == 'GET':
-		site = siteinfo.get(siteinfo.c.id == 1)
-		if site is None:
-			siteform = siteinfoForm(action='/admin/siteinfo_edit')
-		else:	
-			siteform = siteinfoForm(action="/admin/siteinfo_edit",data={'name':site.name,\
-				'url':site.url,'desc':site.desc,'temp':site.temp,'logo':site.logo})
-		category_all = category.all()
-		categoryform = categoryForm(action='/admin/category_new')
-	return {'siteform':siteform,'category_all':category_all,'categoryform':categoryform}
+def admin_index():
+	data = {}
+	site_info = siteinfo.all().one()
+	if site_info:
+		data = site_info.to_dict()
 
-@expose('/admin/siteinfo_edit')
-def siteinfo_edit():
-	if require_login():
-		return redirect(url_for(login))	
-	if request.method == 'POST':
-		form = siteinfoForm()
-             	flag = form.validate(request.params)
+	sform     = siteinfoform(action="/admin/edit_siteinfo",data=data)
+	cates= common()
+    	return {"cates":cates,"sform":sform}
+
+@expose('/admin/edit_siteinfo')
+def edit_siteinfo():
+	if request.method == "POST":
+		f    = siteinfoform()
+		flag = f.validate(request.params)
 		if flag:
-			n = siteinfo(**form.data)
-			if siteinfo.get(siteinfo.c.id == 1):
-				n.id = 1
-			n.save()
-
-	return redirect('/admin')
-
-@expose('/admin/category_new')
-def category_new():
-	if require_login():
-		return redirect(url_for(login))	
-	if request.method == 'POST':
-		form = categoryForm()
-             	flag = form.validate(request.params)
-		if flag:
-			n = category(**form.data)
-			n.num = 0
+			if f.data["id"] == "":
+				del f.data["id"]
+			n    = siteinfo(**f.data)
 			n.save()
 	return redirect('/admin')
 
-#########################################################
 
-@expose('/admin/category_list/<id>')
-def category_list(id):
-	if require_login():
-		return redirect(url_for(login))	
-	content_form = contentForm(action='/admin/content_new',data={'cateid':id})
-	if request.method == 'GET':
-		cate_list = content.filter(content.c.cateid == id)
-		n = category.get(category.c.id == id)
-		name = n.name
-	return {'cate_list':cate_list,'content_form':content_form,'name':name}
+###################################
+# category
+################################## 
 
-@expose('/admin/content_new')
-def content_new():
-	if require_login():
-		return redirect(url_for(login))	
-	if request.method == 'POST':
-		form = contentForm()
-             	flag = form.validate(request.params)
+@expose('/admin/category/new')
+def admin_category_new():
+	cform = categoryform(action="/admin/category/create/0")
+	cates = common()
+    	return {"cates":cates,'cform':cform}
+
+@expose('/admin/content/new/<cate_id>')
+def admin_content_new(cate_id):
+	cform = contentform(action="/admin/content/create/0",data={'cate_id':cate_id})
+	cates = common()
+    	return {"cates":cates,'cform':cform}
+
+@expose('/admin/content/create/<id>')
+def admin_content_create(id):
+	if request.method == "POST":
+		f = contentform(request.params)
+		flag = f.validate(request.params)
 		if flag:
-			n = content(**form.data)
-			id = n.cateid
+			n = content(**f.data)
+			if id != 0 :
+				n.id = id
 			n.save()
-			cate = category.get(category.c.id == id)	
-			cate.num = int(cate.num) + 1 
-			cate.save()
-	return redirect('/admin/category_list/'+str(id))
-
-@expose('/admin/onlinecode_list')
-def onlinecode_list():
-	if require_login():
-		return redirect(url_for(login))	
-	onlinecode_form = onlinecodeForm(action='/admin/onlinecode_new')
-	if request.method == 'GET':
-		cate_list = onlinecode.all()
-	return {'cate_list':cate_list,'onlinecode_form':onlinecode_form}
-
-
-
-@expose('/admin/onlinecode_new')
-def onlinecode_new():
-	if require_login():
-		return redirect(url_for(login))	
-	if request.method == 'POST':
-		form = onlinecodeForm()
-             	flag = form.validate(request.params)
-		if flag:
-			n = onlinecode(**form.data)
-			id = n.cateid
-			n.save()
-	return redirect('/admin/onlinecode_list')
-
-
-
-@expose('/admin/category_del/<id>')
-def category_del(id):
-	if require_login():
-		return redirect(url_for(login))
-	c = category.get(category.c.id == int(id))
-	if c:
-		c.delete()
 	return redirect('/admin')
 
-@expose("/admin/content_edit/<id>")
-def content_edit(id):
-	if require_login():
-		return redirect(url_for(login))	
-	if request.method == 'GET':
-		c = content.get(content.c.id == int(id))
-		if c is None:
-			return redirect('/admin')
-		form = contentForm(data={'cateid':c.cateid,'title':c.title,'id_order':c.id_order,\
-					'content':c.content,'image':c.image})
-		return {'form':form,"name":c.title}
-	if request.method == 'POST':
-		form = contentForm()
-             	flag = form.validate(request.params)
+@expose('/admin/content/edit/<id>')
+def admin_content_edit(id):
+	if request.method == "GET":
+		data = content.get(content.c.id == id).to_dict()
+		cform = contentform(action="/admin/content/create/%s"%id,data=data)
+		cates = common()
+    	return {"cates":cates,'cform':cform}
+
+@expose('/admin/category/<id>')
+def admin_category_show(id):
+	cates     = common()
+	contents  = content.filter(content.c.cate_id == id) 
+    	return {"cates":cates,"contents":contents,"id":id}
+
+@expose('/admin/category/edit/<id>')
+def admin_category_edit(id):
+	if request.method == "GET":
+		data = category.get(category.c.id == id).to_dict()
+		cform = categoryform(action="/admin/category/create/%s"%id,data=data)
+		cates = common()
+    	return {"cates":cates,'cform':cform}
+
+@expose('/admin/category/create/<id>')
+def admin_category_create(id):
+	if request.method == "POST":
+		f = categoryform(request.params)
+		flag = f.validate(request.params)
 		if flag:
-			n = content(**form.data)
-			n.id = int(id)
-			id = n.cateid
+			n = category(**f.data)
+			if id != 0:
+				n.id = id
 			n.save()
-	return redirect('/admin/category_list/'+str(id))
-
-@expose('/admin/content_del/<id>')
-def content_del(id):
-	if require_login():
-		return redirect(url_for(login))
-	c = content.get(content.c.id == int(id))
-	if c:
-		c.delete()
 	return redirect('/admin')
-
-@expose("/admin/onlinecode_edit/<id>")
-def onlinecode_edit(id):
-	if require_login():
-		return redirect(url_for(login))	
-	if request.method == 'GET':
-		c = onlinecode.get(onlinecode.c.id == int(id))
-		if c is None:
-			return redirect('/admin')
-		form = onlinecodeForm(data={'cateid':c.cateid,'title':c.title,'id_order':c.id_order,\
-					'content':c.content,'image':c.image,'code':c.code})
-		return {'form':form,"name":c.title}
-	if request.method == 'POST':
-		form = onlinecodeForm()
-             	flag = form.validate(request.params)
-		if flag:
-			n = onlinecode(**form.data)
-			n.id = int(id)
-			id = n.cateid
-			n.save()
-	return redirect('/admin/onlinecode_list')
-
-@expose('/admin/onlinecode_del/<id>')
-def onlinecode_del(id):
-	if require_login():
-		return redirect(url_for(login))
-	c = onlinecode.get(onlinecode.c.id == int(id))
-	if c:
-		c.delete()
-	return redirect('/admin')
-
-
-###########################
-@expose('/admin/upload')
-def  upload():
-	if require_login():
-		return redirect(url_for(login))
-	from uliweb.contrib.upload import save_file,get_href	
-	if request.method == 'POST':
-            	ret = save_file(request.files['files'].filename,request.files['files'].stream)
-		url = get_href(ret)
-		return json({'success':True, 'filename':request.files['files'].filename, 'url':url}, content_type="text/html;charset=utf-8")
-

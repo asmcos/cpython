@@ -1,93 +1,48 @@
-{{extend "cms_head.html"}}
+{{extend "cms_layout.html"}}
 {{block content}}
 
-{{from cms.views import *
-
-cate_name = category_get(6)
-count  = cate_name.count()
-cate_n = list(cate_name)
-
-if count > 0:
-	cont6 = category_content(cate_n[0].id)
-
-if count > 1:
-	cont7 = category_content(cate_n[1].id)
-if count > 2:
-	cont8 = category_content(cate_n[2].id,limit=3)
-	cont8_1 = category_content(cate_n[2].id,limit=1)
-
-if count > 3:
-	cont9 = category_content(cate_n[3].id)
-if count > 4:
-	cont10 = category_content(cate_n[4].id,1)
-}}
-
-<style type="text/css">
-#sub-hover a:hover img, #sub-hover a.hover img {
-  height: 100px;
-  width: 100px;
-}
-</style>
-
-<div class="row" id="sub-hover">
-	<div class="span3" >
-	<a href=/category_show/{{=cate_n[0].id}}>	<img src="static/1.png"> </a>
-		{{=cate_n[0].name}}	
-
-	</div>
-	<div class="span3">
-	<a href=/category_show/{{=cate_n[1].id}}>	<img src="static/2.png"> </a>
-		{{=cate_n[1].name}}	
-	</div>
-	<div class="span3">
-	<a href=/category_show/{{=cate_n[2].id}}>	<img src="static/3.png"> </a>
-		{{=cate_n[2].name}}	
-	</div>
-	<div class="span2" style="height:100px">
-	<a href=/category_show/{{=cate_n[3].id}}>	<img src="static/4.png"> </a>
-		{{=cate_n[3].name}}	
-	</div>
-</div>
-
+{{from cms.views import get_category_by_order}}
 <div class="row">
+
+{{contents0,cate0 = get_category_by_order(0)}}
   <div class="span6">
    <div class="boxed-group .warn">
-    <h3>{{=cate_n[0].name}}</h3>
+    <h3>{{if cate0:}}{{=cate0.name}}{{pass}}</h3>
     <div class="boxed-group-inner markdown-body">
-	<ul class="boxed-group-list">
-	{{for n in cont6:}}
-      <li class="linked-item .warn"><a href=/content_show/{{=n.id}}>{{=n.title}}</a></li>
-	{{pass}}
-	</ul>
+<ul class="boxed-group-list">
+{{for n in contents0:}}
+      <li class="linked-item .warn"><a href=/content_show/>{{=n.title}}</a></li>
+{{pass}}
+</ul>
     </div>
   </div>
   </div> <!--span6-->
 
 
-  <div class="span4">
+{{contents1,cate1 = get_category_by_order(1)}}
+  <div class="span5">
    <div class="boxed-group">
-    <h3>{{=cate_n[1].name}}</h3>
+    <h3>{{if cate1:}}{{=cate1.name}}{{pass}}</h3>
     <div class="boxed-group-inner markdown-body">
-	<ul class="boxed-group-list">
-	{{for n in cont7:}}
-      <li class="linked-item .message"> <a href=/content_show/{{=n.id}}>{{=n.title}}</a></li>
-	{{pass}}
-	</ul>
+<ul class="boxed-group-list">
+{{for n in contents1:}}
+      <li class="linked-item .message"> <a href=/content_show/>{{=n.title}}</a></li>
+{{pass}}
+</ul>
     </div>
   </div>
- </div> <!--span3-->
+ </div> <!--span5-->
 
 </div> <!--row-->
-  
 
 
-
+{{contents2,cate2 = get_category_by_order(2)}}
  <div class="boxed-group">
-    <h3>{{=cate_n[2].name}}</h3>
+    <h3>{{if cate2:}}{{=cate2.name}}{{pass}}</h3>
     <div class="boxed-group-inner markdown-body">
  
 
-{{for n in cont8:}}
+{{for n in contents2:}}
 
 <div class="discussion-bubble">
       <img class="discussion-bubble-avatar" width="48" height="48" src={{=n.image}}>
@@ -106,48 +61,4 @@ if count > 4:
     </div>
   </div>
 
-
-<div class="row" style="height:150px">
-	<div class="span6">
-	<div class="row">
-		<div class="span3">
-		{{for n in cont10:}}
-		<h3><a href=/content_show/{{=n.id}}>{{=n.title}}</a></h3>
-		{{pass}}	
-		</div>
-		<div class="span2">
-		<img src="static/pic1.jpeg">
-		</div>
-	</div>
-	</div>
-	<div class="span5">
-	<div class="row">
-		<div class="span2">
-		{{for n in cont8_1:}}
-		<h3><a href=/content_show/{{=n.id}}>{{=n.title}}</a></h3>
-		{{pass}}	
-			
-		</div>
-		<div class="span2">
-		<img src="static/pic2.jpeg">
-		</div>
-	</div>
-	</div>
-
-
-</div>
-
-<div style="background:#4183c4;" class="styleguide-color">
-	{{for n in cont9:}}
-	<li><a style="color:#ffffff" href=/content_show/{{=n.id}}>{{=n.title}}</a></li>
-	{{pass}}
-</div>
-
-<div>
-<h3>在线编写python程序</h3>
-<iframe width=100% height="800" frameborder="0"
-src="http://pythontutor.com/visualize.html#code=x+%3D+100%0As1%3D+%22100%22%0Aprint+x%2Bx%0Aprint+s1%2Bs1&mode=display&cumulative=false&py=2&curInstr=0">
-</iframe>
-
-</div>
 {{end}}

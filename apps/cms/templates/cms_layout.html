@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 {{block html_tag}}<html>{{end}}
   <head>
     {{block meta}}
@@ -6,42 +5,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
     {{end}}
-    <title>{{=site.name}}</title>
+    <title>{{=site_info.sitename}}</title>
     <!-- toplinks -->
-
-<link rel="stylesheet" type="text/css" href="/static/css/kh.css" />
-
     {{use "bootstrap"}}
-    <link href="/static/css/github-bd7a9aac1964f57509ff6d9dbddc6e086343bca4.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="/static/css/github2-8fa43eb7ec103bd3bf79be09cf64db52d75c244f.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="https://github.com/assets/github-bd7a9aac1964f57509ff6d9dbddc6e086343bca4.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="https://github.com/assets/github2-8fa43eb7ec103bd3bf79be09cf64db52d75c244f.css" media="screen" rel="stylesheet" type="text/css" />
 
 
-      <link href="/static/css/styleguide-c5a62d5b9dd0e66af3d9450ae6589eeb5ca68db1.css" media="screen" rel="stylesheet" type="text/css" />
+      <link href="https://github.com/assets/styleguide-c5a62d5b9dd0e66af3d9450ae6589eeb5ca68db1.css" media="screen" rel="stylesheet" type="text/css" />
 
-    <script src="/static/js/frameworks-eee761b9d5e06efb064aaaf528c44ef8e1601e71.js" type="text/javascript"></script>
-    <script src="/static/js/github-e2238760e924ccb9d1992d97a62b75eef6f3bc8b.js" type="text/javascript"></script>
+    <script src="https://github.com/assets/frameworks-eee761b9d5e06efb064aaaf528c44ef8e1601e71.js" type="text/javascript"></script>
+    <script src="https://github.com/assets/github-e2238760e924ccb9d1992d97a62b75eef6f3bc8b.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="/static/js/jquery.promptumenu.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/static/css/promptumenu.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/cms.css" />
-<script type="text/javascript">
-        $(function(){
-                $('.indexmain ul').promptumenu(
-                {
-                        width:900,
-                        height:500,
-                        rows: 2,
-                        columns: 3,
-                        direction: 'horizontal',
-                        pages: true
-                }
-                );
-        });
-</script>
-
-
-
-    {{block _css}}{{end}}
+{{link "bootstrap_extend.css"}}
+{{link "bootheme/bootheme.css"}}
   </head>
 
 {{block body_tag}}<body class="bootstrap-body">{{end}}
@@ -57,15 +34,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="/">{{block project}}CPython 中蟒联盟{{end}}</a>
+      <a class="brand" href="/">{{block project}}智普教育{{end}}</a>
       <div class="nav-collapse">
         {{block nav}}
         <ul class="nav">
-	  {{for n in cate:}}
+	  {{for n in cates:}}
           <li class="active"><a href="/category_show/{{=n.id}}">{{=n.name}}</a></li>
 	  {{pass}}
-          <li class="active"><a href=http://uliweb.cpython.org/forum/3>技术问答</a></li>
-          <li class="active"><a href=/onlinecode_all>在线编程</a></li>
         </ul>
         {{end}}
       </div><!--/.nav-collapse -->
@@ -86,7 +61,7 @@
 <div class="container">
   <footer class="row">
   {{block footer}}
-     <h3>cpython 中蟒联盟,基于<a href=http://github.com/asmcos/jeapcms>JeapCMS</a>系统,感谢<a href=http://uliweb.cpython.org>uliweb提供的基础框架。</a> </h3>
+     <h3>智普教育,基于<a href=http://github.com/asmcos/jeapcms>JeapCMS</a>系统,感谢<a href=http://uliweb.cpython.org>uliweb提供的基础框架。</a> </h3>
   {{end}}
   </footer>
 </div>
@@ -96,3 +71,5 @@
 
   </body>
 </html>
+
+

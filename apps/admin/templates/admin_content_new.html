@@ -1,0 +1,29 @@
+{{ extend "base.html"}}
+
+{{block content}}
+{{use "xheditor"}}
+
+<section id="typography">
+
+<div class="bs-docs-example">
+{{<<cform}}
+</div>
+
+</section>
+
+{{include "inc_xheditor_plugins.html"}}
+<script type="text/javascript">
+    $(function(){
+        $('textarea').xheditor({
+            tools:'Cut,Copy,Paste,Pastetext,|,Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,SelectAll,Removeformat,|,Align,List,Outdent,Indent,|,Link,Unlink,Anchor,Img,Flash,Hr,Emot,Table,Code,Quote,|,About',
+            skin:'default',
+            upFlashExt:"swf",
+            plugins:plugins,
+            height:300,
+            width:600,
+        });
+    });
+</script>
+
+
+{{end}}
