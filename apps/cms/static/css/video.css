@@ -1,0 +1,127 @@
+/* line 7, ../../app/assets/stylesheets/records.css.sass */
+.search-feed a {
+  line-height: 16px;
+}
+
+/* line 10, ../../app/assets/stylesheets/records.css.sass */
+textarea.embed-code {
+  width: 800px;
+  margin: 0 auto;
+  display: block;
+  overflow: hidden;
+}
+
+/* line 15, ../../app/assets/stylesheets/records.css.sass */
+.records {
+  width: 800px;
+  margin: 0 auto;
+  box-shadow: 1px 1px 5px #bbbbbb;
+  padding-left: 0;
+}
+/* line 19, ../../app/assets/stylesheets/records.css.sass */
+.records .record {
+  display: block;
+  background: #eeeeee;
+  padding: 15px;
+  border: 1px #cccccc solid;
+  border-bottom: none;
+  overflow: auto;
+}
+/* line 26, ../../app/assets/stylesheets/records.css.sass */
+.records .record.private {
+  background-image: url("/assets/record/private-bg.png");
+}
+/* line 28, ../../app/assets/stylesheets/records.css.sass */
+.records .record:hover, .records .record:last-child:hover {
+  background-color: #fafafa;
+}
+/* line 30, ../../app/assets/stylesheets/records.css.sass */
+.records .record:first-child {
+  border-top: 1px #cccccc solid;
+}
+/* line 32, ../../app/assets/stylesheets/records.css.sass */
+.records .record:last-child {
+  border-bottom: 1px #cccccc solid;
+  background: #eeeeee;
+}
+/* line 35, ../../app/assets/stylesheets/records.css.sass */
+.records .record .userinfo, .records .record .shell {
+  text-align: center;
+  width: 110px;
+  overflow: hidden;
+  float: left;
+}
+/* line 40, ../../app/assets/stylesheets/records.css.sass */
+.records .record .userinfo:hover, .records .record .shell:hover {
+  overflow: visible;
+}
+/* line 42, ../../app/assets/stylesheets/records.css.sass */
+.records .record .avatar {
+  display: block;
+}
+/* line 44, ../../app/assets/stylesheets/records.css.sass */
+.records .record .title {
+  margin: 0;
+}
+/* line 46, ../../app/assets/stylesheets/records.css.sass */
+.records .record .desc, .records .record h3.title {
+  margin-left: 140px;
+}
+/* line 48, ../../app/assets/stylesheets/records.css.sass */
+.records .record .tags {
+  display: inline-block;
+}
+/* line 51, ../../app/assets/stylesheets/records.css.sass */
+.records .record .desc time {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: lighter;
+  margin-top: -0.5em;
+}
+/* line 56, ../../app/assets/stylesheets/records.css.sass */
+.records .record .desc.description {
+  margin-top: 0.5em;
+}
+/* line 58, ../../app/assets/stylesheets/records.css.sass */
+.records .record .desc a.comments-count {
+  margin-right: 10px;
+}
+
+/* line 62, ../../app/assets/stylesheets/records.css.sass */
+.tags a {
+  display: inline-block;
+  padding-left: 20px;
+  line-height: 16px;
+  background: transparent url(/assets/tag-icon.png) center left no-repeat;
+  text-decoration: none;
+}
+
+/* line 74, ../../app/assets/stylesheets/records.css.sass */
+.records-controller.show-action .uname {
+  overflow: hidden;
+  height: 1.3em;
+}
+/* line 77, ../../app/assets/stylesheets/records.css.sass */
+.records-controller.show-action .user {
+  width: 800px;
+  margin: 0 auto;
+  box-shadow: 1px 1px 5px #bbbbbb;
+  margin-bottom: 30px;
+}
+/* line 84, ../../app/assets/stylesheets/records.css.sass */
+.records-controller.edit-action .main form {
+  margin-top: 25px;
+}
+/* line 87, ../../app/assets/stylesheets/records.css.sass */
+.records-controller.edit-action .main form .description textarea {
+  width: 400px;
+  height: 300px;
+}
+/* line 90, ../../app/assets/stylesheets/records.css.sass */
+.records-controller.edit-action .main form .btn-group {
+  margin-left: 150px;
+}
+
+.vertical-expander-30 {
+	height: 30px;
+}

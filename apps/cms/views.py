@@ -15,5 +15,5 @@ def get_category_by_order(orderid):
 	contents = []
 	cate     = category.get(category.c.order == orderid)
 	if cate:
-		contents = content.filter(content.c.cate_id == cate.id)
+		contents = content.filter(content.c.cate_id == cate.id).limit(10)
 	return contents,cate

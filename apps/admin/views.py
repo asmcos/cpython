@@ -3,6 +3,13 @@ from uliweb import expose, functions
 from models import *
 from forms  import *
 
+def __begin__():
+    from uliweb.contrib.auth.views import login
+    if not request.user :
+        return redirect(url_for(login) + '?next=/admin')
+    elif request.user.is_superuser == False:
+	return "只有管理员才能管理此页面"
+
 def common():
 	cates     = category.all()
 	return cates

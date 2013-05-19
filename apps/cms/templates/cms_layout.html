@@ -5,7 +5,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     {{end}}
-    <title>{{=site_info.sitename}}</title>
+    <title>{{if site_info:}}
+	{{=site_info.sitename}}
+	{{pass}}
+	</title>
     <!-- toplinks -->
     {{use "bootstrap"}}
     <link href="https://github.com/assets/github-bd7a9aac1964f57509ff6d9dbddc6e086343bca4.css" media="screen" rel="stylesheet" type="text/css" />
@@ -16,6 +19,9 @@
 
     <script src="https://github.com/assets/frameworks-eee761b9d5e06efb064aaaf528c44ef8e1601e71.js" type="text/javascript"></script>
     <script src="https://github.com/assets/github-e2238760e924ccb9d1992d97a62b75eef6f3bc8b.js" type="text/javascript"></script>
+
+ <link href="/static/css/cms.css" rel="stylesheet">
+ <link href="/static/css/video.css" rel="stylesheet">
 
 {{link "bootstrap_extend.css"}}
 {{link "bootheme/bootheme.css"}}
