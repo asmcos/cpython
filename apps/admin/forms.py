@@ -19,6 +19,7 @@ class categoryform(Form):
 class contentform(Form):
         title    = StringField(label="标题",required=True) 
         image    = StringField(label="图片")
+        url      = StringField(label="视频地址")
         template = StringField(label="模版",default="")
         order    = StringField(label="显示顺序",default='0')
         status   = StringField(label="状态",default="开放")

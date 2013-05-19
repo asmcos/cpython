@@ -8,7 +8,7 @@ def __begin__():
     if not request.user :
         return redirect(url_for(login) + '?next=/admin')
     elif request.user.is_superuser == False:
-	return "只有管理员才能管理此页面"
+	return "Superman can operation the page!,sorry"
 
 def common():
 	cates     = category.all()

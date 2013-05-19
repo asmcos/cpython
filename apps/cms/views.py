@@ -11,6 +11,15 @@ def index():
     return {'cates':cates,'site_info':site_info}
 
 
+@expose('/showcontent/<id>')
+def showcontent(id):
+	c1 = content.get(content.c.id == id)
+    	cates = common()
+    	site_info = siteinfo.all().one()
+	if c1.template:
+		response.template = c1.template	
+	return {"cates":cates,'site_info':site_info,'c1':c1}
+
 def get_category_by_order(orderid):
 	contents = []
 	cate     = category.get(category.c.order == orderid)
