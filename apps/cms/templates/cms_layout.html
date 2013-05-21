@@ -1,4 +1,9 @@
 {{block html_tag}}<html>{{end}}
+
+{{from admin.views import common,get_siteinfo}}
+{{cates = common()}}
+{{site_info = get_siteinfo()}}
+
   <head>
     {{block meta}}
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,17 +16,12 @@
 	</title>
     <!-- toplinks -->
     {{use "bootstrap"}}
-    <link href="https://github.com/assets/github-bd7a9aac1964f57509ff6d9dbddc6e086343bca4.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="https://github.com/assets/github2-8fa43eb7ec103bd3bf79be09cf64db52d75c244f.css" media="screen" rel="stylesheet" type="text/css" />
 
-
-      <link href="https://github.com/assets/styleguide-c5a62d5b9dd0e66af3d9450ae6589eeb5ca68db1.css" media="screen" rel="stylesheet" type="text/css" />
-
-    <script src="https://github.com/assets/frameworks-eee761b9d5e06efb064aaaf528c44ef8e1601e71.js" type="text/javascript"></script>
-    <script src="https://github.com/assets/github-e2238760e924ccb9d1992d97a62b75eef6f3bc8b.js" type="text/javascript"></script>
 
  <link href="/static/css/cms.css" rel="stylesheet">
  <link href="/static/css/video.css" rel="stylesheet">
+ <link href="/static/css/style.css" rel="stylesheet">
+
 
 {{link "bootstrap_extend.css"}}
 {{link "bootheme/bootheme.css"}}
@@ -40,13 +40,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="/">{{block project}}智普教育{{end}}</a>
+      <a class="brand" href="/">{{block project}}编程公园{{end}}</a>
       <div class="nav-collapse">
         {{block nav}}
         <ul class="nav">
 	  {{for n in cates:}}
-          <li class="active"><a href="/category_show/{{=n.id}}">{{=n.name}}</a></li>
+          <li class="active"><a href="/">{{=n.name}}</a></li>
 	  {{pass}}
+          <li ><a href="/new">立即报名</a></li>
+          <li ><a href="/showapply">已经确认名单</a></li>
         </ul>
         {{end}}
       </div><!--/.nav-collapse -->
@@ -65,7 +67,7 @@
 
 {{block footer_container}}
 <div class="container">
-  <footer class="row">
+  <footer class="row" style="padding:40px 40px 40px 40px">
   {{block footer}}
      <h3>智普教育,基于<a href=http://github.com/asmcos/jeapcms>JeapCMS</a>系统,感谢<a href=http://uliweb.cpython.org>uliweb提供的基础框架。</a> </h3>
   {{end}}

@@ -2,108 +2,69 @@
 {{block content}}
 
 {{from cms.views import get_category_by_order}}
-<div class="row">
-
-<div class="span6" style="padding:20px 0 0 50px">
 
 {{contents0,cate0 = get_category_by_order(0)}}
+<div class="wrapper clearfix" ng-controller="MainCtrl" x-drag-drop-project x-bind-keyboard-shortcuts>
 
+<!-- Sidebar -->
+<div class="sidebar" ng-controller="SidebarCtrl">
+    <ul>
+        <li ng-repeat="project in projects">
+            <a href="#" >活动说明</a>
+        </li>
+	{{for n in contents0:}}
+        <li ng-repeat="project in projects">
+            <a href="/showcontent/{{=n.id}}" >{{=n.title}}</a>
+        </li>
+	{{pass}}
+    </ul>
 
-{{for n in contents0:}}
-<ul class='records'>
-<li class='record'>
-<div class='userinfo'>
- <img alt="" src={{=n.image}} width="100" height="100" />
-</div>
-
-<h3 class='title'>
-	{{=n.title}}
-</h3>
-
-<div class='desc'>
-<time datetime=''>
-
-</time>
-</div>
-<div class='desc description'>
-<p>
-	{{=n.content[:200]}}
-</p>
-
-</div>
-
-<br>
-<div class='desc'>
-  <p class='tags'>
-  <a class="btn" href="/showcontent/{{=n.id}}">观看视频</a>
-</p>
-</div>
-
-</li>
-
-</ul>
-<div class="vertical-expander-30" ></div>
-{{pass}}
-
-
-
-</div>
-
-{{contents1,cate1 = get_category_by_order(1)}}
-  <div class="span6">
-   <div class="boxed-group .warn">
-    <h3>{{if cate1:}}{{=cate1.name}}{{pass}}</h3>
-    <div class="boxed-group-inner markdown-body">
-<ul class="boxed-group-list">
-{{for n in contents1:}}
-      <li class="linked-item .warn"><a href=/content_show/>{{=n.title}}</a></li>
-{{pass}}
-</ul>
+    <div class="controls">
+	<i class="icon-book icon-white" style="padding:0 10px 0 10px"></i>
+	<i class="icon-heart icon-white" style="padding:0 10px 0 10px"></i>
+	<i class="icon-glass icon-white" style="padding:0 10px 0 10px"></i>
+	<i class="icon-tags icon-white" style="padding:0 10px 0 10px"></i>
+	<i class="icon-music icon-white" style="padding:0 10px 0 10px"></i>
     </div>
-  </div>
-  </div> <!--span6-->
+
+</div>
+<!-- Sidebar ends -->
 
 
-{{contents2,cate2 = get_category_by_order(2)}}
-  <div class="span5">
-   <div class="boxed-group">
-    <h3>{{if cate2:}}{{=cate2.name}}{{pass}}</h3>
-    <div class="boxed-group-inner markdown-body">
-<ul class="boxed-group-list">
-{{for n in contents2:}}
-      <li class="linked-item .message"> <a href=/content_show/>{{=n.title}}</a></li>
-{{pass}}
-</ul>
+<div class="main">
+
+<!-- App title bar -->
+<div class="title-bar" ng-controller="TitlebarCtrl">
+    <div class="controls">
+	<i class="icon-book" style="margin:10px 10px 10px 10px"></i>
+	<i class="icon-film" style="margin:10px 10px 10px 10px"></i>
+	<i class="icon-camera" style="margin:10px 10px 10px 10px"></i>
+	<i class="icon-resize-full" style="margin:10px 10px 10px 10px"></i>
     </div>
-  </div>
- </div> <!--span5-->
-
-</div> <!--row-->
+</div>
 
 
-{{contents3,cate3 = get_category_by_order(3)}}
- <div class="boxed-group">
-    <h3>{{if cate3:}}{{=cate3.name}}{{pass}}</h3>
-    <div class="boxed-group-inner markdown-body">
- 
+<!--File list and project view -->
+<div class="content clearfix" ng-controller="FilesCtrl">
+    <div class="content-wrap clearfix" ng-class="{'show-options' : selectedFile.id}">
+        <div ng-switch on="routePath">
+            <div ng-switch-when="home" class="home">
 
-{{for n in contents3:}}
-
-<div class="discussion-bubble">
-      <img class="discussion-bubble-avatar" width="48" height="48" src={{=n.image}}>
-
-      <div class="discussion-bubble-content bubble">
-        <div class="discussion-bubble-inner">
-          <!-- content goes here -->
-           <a href=/content_show/{{=n.id}}>{{=n.title}}</a>
+            </div>
+		
+		<div>{{<<cate0.desc}} </div>
         </div>
-      </div>
     </div>
+</div>
+</div>
+</div>
 
 
-{{pass}}
 
-    </div>
-  </div>
+
+  
+
+
+
 
 {{end}}

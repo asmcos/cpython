@@ -1,0 +1,10 @@
+{{extend "base.html"}}
+
+{{block content}}
+<a href="/admin/course">返回首页</a>
+{{<< view}}
+<div>
+<a href="/admin/course/edit/{{=object.id}}">编辑</a>
+<a href="/admin/course/{{=object.id}}">删除</a>
+</div>
+{{end}}

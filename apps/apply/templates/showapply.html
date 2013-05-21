@@ -1,0 +1,39 @@
+   {{extend "cms_layout.html"}} 
+
+    
+    
+    {{block content}} 
+<div class="content" style="padding:20px 20px 20px 20px;">
+    <h2>所有报名情况：</h2>
+    <hr>
+    <table class="table table-condensed">
+    <thead>
+    <tr>
+    <th>序号</th>
+    <th>姓名</th>
+    <th>所在城市</th>
+    <th>公司/学校</th>
+    <th>工作时间</th>
+    <th>班级ID</th>
+    <th>填写日期</th>
+    </tr>
+    </thead>
+    <tbody>
+{{for n in all:}}
+    <tr>
+    <td>{{=n.id}}</td>
+    <td>{{=n.name}}</td>
+    <td>{{=n.city}}</td>
+    <td>{{=n.company}}</td>
+    <td>{{=n.workage}}</td>
+    <td><a href="/showcourse/{{=n.course_id}}">{{=n.course_id}}</a></td>
+    <td>{{=n.post_date}}</td>
+    </tr>
+{{pass}}
+    </tbody>
+    </table>
+		
+  
+</div>
+
+{{end}}
