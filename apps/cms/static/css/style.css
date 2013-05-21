@@ -38,7 +38,7 @@ border:none}
 button:hover{background:#CCC}
 button:active{background:#8A9B0F}
 body{-webkit-user-select:none;
-background:#efefef;
+background:url(/static/img/bg.png);
 color:#666;
 cursor:default;
 font-family:LatoRegular;
