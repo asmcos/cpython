@@ -3,24 +3,20 @@
     
     
     {{block content}} 
-<div class="content" style="padding:20px 20px 20px 20px;">
-		{{<<form}} 
-  
-</div>
 
-<div class="content" style="padding:0px 20px 20px 20px">
-    <h2> 请您先确认课程ID：</h2>
+<div class="content" style="padding:20px 20px 20px 20px;">
+
     <table class="table table-condensed">
     <thead>
     <tr>
-    <th>课程ID</th>
+    <th>序号</th>
     <th>名称</th>
     <th>地址城市</th>
     <th>时间</th>
     </tr>
     </thead>
     <tbody>
-{{for n in all_course:}}
+{{for n in all:}}
     <tr>
     <td><a href="/showcourse/{{=n.id}}">{{=n.id}}</a></td>
     <td>{{=n.name}}</td>
@@ -30,8 +26,7 @@
 {{pass}}
     </tbody>
     </table>
-
-
+   <hr>
 
 </div>
 {{end}}

@@ -35,3 +35,7 @@ def showcourse(id):
 	c1 = course.filter(course.c.status == True).filter(course.c.id == id)
 	return {'c1':c1}
 
+@expose('/showcourses')
+def showcourses():
+	all = course.filter(course.c.status == True)
+	return {'all':all}
