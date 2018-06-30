@@ -3,7 +3,7 @@
 例子运行Mac OSX ，Python 2.7.x
 Linux ubuntu 18.04, Python 3.x
 
-同时我会把代码放在 github.com/asmcos/cpython/example/
+同时我会把代码放在 github.com/asmcos/cpython/examples/
 
 ## hello.py
 
