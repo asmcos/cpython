@@ -1,7 +1,8 @@
 # 关于cPython
 
-2012年，作为国内早期python培训机构我做了智普教育 jeapedu.com. 同时注册了域名cpython.org.
-一直想为python做一点贡献，想起我的cpython.org，用它写一个入门文档吧。
+2012年，我做了智普教育 jeapedu.com. 他是国内较早的python培训机构。 同时我注册了域名cpython.org.
+这些年里我一直想为python社区做一点贡献，我想起了我的宝贝cpython.org，那么就用它写一个入门文档吧。
+cpython 是python里面的一个专业名词：cPython，同时又是China python的含义。
 
 ## Commands
 
