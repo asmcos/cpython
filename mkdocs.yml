@@ -1,1 +1,5 @@
 site_name: cPython
+pages:
+    - 关于我们: index.md
+    - 安装python: install_python.md
+theme: readthedocs
