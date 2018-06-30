@@ -1,9 +1,10 @@
 # 环境
 
 例子运行Mac OSX ，Python 2.7.x
+
 Linux ubuntu 18.04, Python 3.x
 
-同时我会把代码放在 github.com/asmcos/cpython/examples/
+同时我会把代码放在 https://github.com/asmcos/cpython  目录：/examples
 
 ## hello.py
 
