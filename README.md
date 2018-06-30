@@ -1,7 +1,7 @@
 cpython
 =======
 
-cpython website ,base on jeapcms
+cpython website ,make by  mkdocs
 
 website
 =======
