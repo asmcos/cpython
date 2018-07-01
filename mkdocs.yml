@@ -2,4 +2,5 @@ site_name: cPython
 pages:
     - 关于本站: index.md
     - 开始: start.md
+    - 变量: variables.md
 theme: readthedocs
