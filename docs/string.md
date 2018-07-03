@@ -12,16 +12,16 @@ print(s1[0])
 
 print(s1[3])
 
-'''
+"""
 注释，字符串最后一个字符 这里是f
-'''
+"""
 
 print('字符串的最后一个是：')
 print(s1[-1])
 
-'''
+"""
 这一句执行会出错，因为字符串不可以修改
-'''
+"""
 s1[0] = '1'
 
 ```
@@ -29,7 +29,7 @@ s1[0] = '1'
 # 执行结果
 
 ```
-jeapedudeAir-3:docs jeapedu$ python ../examples/string.py 
+jeapedudeAir-3:docs jeapedu$ python ../examples/string.py
 a
 d
 字符串的最后一个是：
