@@ -7,13 +7,13 @@ pages:
     - 列表: list.md
     - range: range.md
     - For: for.md
-    - If:if.md
-    - 切片／slice:slice.md
-    - dict:dict.md
-    - 函数:functions.md
-    - 模块:module.md
-    - 类:class.md
-    - 随机数:rand.md
+    - If: if.md
+    - 切片／slice: slice.md
+    - dict: dict.md
+    - 函数: functions.md
+    - 模块: module.md
+    - 类: class.md
+    - 随机数: rand.md
     - 正则: re.md
 
 theme: readthedocs
