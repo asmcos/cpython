@@ -16,5 +16,7 @@ pages:
     - 类: class.md
     - 随机数: rand.md
     - 正则: re.md
+    - 字符串函数: string_func.md
+    - 列表函数: list_func.md 
 
 theme: readthedocs
