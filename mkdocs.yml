@@ -12,6 +12,7 @@ pages:
     - dict: dict.md
     - 函数: functions.md
     - 模块: module.md
+    - 安装模块（pip）: pip.md
     - 类: class.md
     - 随机数: rand.md
     - 正则: re.md
