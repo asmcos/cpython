@@ -26,3 +26,4 @@ cpython 是python里面的一个专业名词：CPython，同时又是China Pytho
 ## 文档贡献列表
 
     asmcos    # 创建人.
+    jiangning # 首席贡献者
