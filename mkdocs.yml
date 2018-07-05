@@ -18,6 +18,10 @@ pages:
     - 随机数: rand.md
     - 正则: re.md
     - 字符串函数: string_func.md
-    - 列表函数: list_func.md 
-
+    - 列表函数: list_func.md
+    - 时间函数: time.md
+    - 文件处理: file.md
+    - 错误和异常: error_except.md
+    - 调试: debug.md
+    - 常用内置函数: built_in_func.md
 theme: readthedocs
