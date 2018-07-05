@@ -5,6 +5,7 @@ pages:
     - 变量: variables.md
     - 字符串: string.md
     - 列表: list.md
+    - 元组: tuple.md
     - range: range.md
     - For: for.md
     - If: if.md
