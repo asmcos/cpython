@@ -24,4 +24,5 @@ pages:
     - 错误和异常: error_except.md
     - 调试: debug.md
     - 常用内置函数: built_in_func.md
+    - requests: requests.md
 theme: readthedocs
