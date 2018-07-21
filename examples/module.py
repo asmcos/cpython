@@ -24,3 +24,8 @@ print (version)
 from os import uname
 
 print(uname())
+
+import cpython
+
+print(cpython.website)
+cpython.help()
