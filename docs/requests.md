@@ -43,11 +43,11 @@ print(resp.content)
 你可以可以发送一个post请求，一般post请求都要上传一些参数（数据），例子如下。来自官网文档。
 因为我也没有合适的例子。
 
- ```
 
+```
  resp = requests.post('http://httpbin.org/post', data = {'key':'value'})
+```
 
- ```
 
 `` 其他请求``
 
@@ -110,4 +110,59 @@ JSON 数据格式
 >>> headers = {'user-agent': 'my-app/0.0.1'}
 
 >>> r = requests.get(url, headers=headers)
+```
+
+POST Multipart-Encoded 文件
+----------------------------
+
+```
+>>> url = 'http://httpbin.org/post'
+>>> files = {'file': open('report.xls', 'rb')}
+
+>>> r = requests.post(url, files=files)
+>>> r.text
+{
+  ...
+  "files": {
+    "file": "<censored...binary...data>"
+  },
+  ...
+}
+```
+
+Cookies
+---------
+
+``获取返回的cookies``
+
+```
+>>> url = 'http://example.com/some/cookie/setting/url'
+>>> r = requests.get(url)
+
+>>> r.cookies['example_cookie_name']
+'example_cookie_value'
+```
+
+``设置一个cookies 项``
+
+```
+>>> url = 'http://httpbin.org/cookies'
+>>> cookies = dict(cookies_are='working')
+
+>>> r = requests.get(url, cookies=cookies)
+>>> r.text
+'{"cookies": {"cookies_are": "working"}}'
+```
+
+
+``CookieJar``
+
+```
+>>> jar = requests.cookies.RequestsCookieJar()
+>>> jar.set('tasty_cookie', 'yum', domain='httpbin.org', path='/cookies')
+>>> jar.set('gross_cookie', 'blech', domain='httpbin.org', path='/elsewhere')
+>>> url = 'http://httpbin.org/cookies'
+>>> r = requests.get(url, cookies=jar)
+>>> r.text
+'{"cookies": {"tasty_cookie": "yum"}}'
 ```
