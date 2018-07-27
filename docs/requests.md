@@ -44,7 +44,9 @@ print(resp.content)
 因为我也没有合适的例子。
 
  ```
+
  resp = requests.post('http://httpbin.org/post', data = {'key':'value'})
+
  ```
 
 `` 其他请求``
@@ -57,4 +59,55 @@ HTTP 请求类型：PUT，DELETE，HEAD 以及 OPTIONS,例子来自官方文档�
 >>> r = requests.head('http://httpbin.org/get')
 >>> r = requests.options('http://httpbin.org/get')
 
+```
+
+URL 参数
+--------
+
+通常情况，你看到的网址 http://httpbin.org/get?key2=value2&key1=value1
+
+get请求带参数的 ``URL`` 例子：
+
+```
+>>> payload = {'key1': 'value1', 'key2': ['value2', 'value3']}
+
+>>> r = requests.get('http://httpbin.org/get', params=payload)
+>>> print(r.url)
+http://httpbin.org/get?key1=value1&key2=value2&key2=value3
+```
+
+查看返回结果
+==========
+
+```
+In [5]: import requests
+
+In [6]: r = requests.get('http://cpython.org')
+
+In [7]: r.text
+Out[7]: u'<!DOCTYPE html>\n<!--[if IE 8]><html c................
+```
+
+r.status_code 表示返回状态，例如：200, 404,500 等
+
+
+JSON 数据格式
+=============
+
+```
+>>> import requests
+
+>>> r = requests.get('https://api.github.com/events')
+>>> r.json()
+[{u'repository': {u'open_issues': 0, u'url': 'https://github.com/...
+```
+
+自定义请求头
+-----------
+
+```
+>>> url = 'http://www.jeapedu.com'
+>>> headers = {'user-agent': 'my-app/0.0.1'}
+
+>>> r = requests.get(url, headers=headers)
 ```
