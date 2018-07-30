@@ -166,5 +166,5 @@ Cookies
 >>> r.text
 '{"cookies": {"tasty_cookie": "yum"}}'
 ```
-
-我还写了requests[源代码注释](http://www.cpython.org/requests_notes/index.html)
+上面的文档来自 requests doc的入门部分。
+另外：我还写了requests[源代码注释](http://www.cpython.org/requests_notes/index.html) 主要是分析requests的源代码。
