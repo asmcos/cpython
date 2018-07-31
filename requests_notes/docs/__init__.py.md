@@ -1,3 +1,4 @@
+# 使用说明
 
 ```
 # -*- coding: utf-8 -*-
@@ -47,8 +48,8 @@ is at <http://python-requests.org>.
 
 以上是注释部分，下面是代码
 
-代码部分
----------
+# 代码部分
+
 
 ```
 import urllib3
@@ -56,7 +57,10 @@ import chardet
 import warnings
 from .exceptions import RequestsDependencyWarning
 ```
-requests 库基础应用还是urllib3
+
+!!! node "依赖库"
+    requests 库基础应用还是urllib3
+    chardet 是用来检测 字符编码的。
 
 ```
 def check_compatibility(urllib3_version, chardet_version):
@@ -84,6 +88,10 @@ def check_compatibility(urllib3_version, chardet_version):
     assert patch >= 2
 ```
 
+检查这两个库的版本号，看样子要求很严格啊。
+
+
+```
 def _check_cryptography(cryptography_version):
     # cryptography < 1.3.4
     try:
@@ -95,6 +103,9 @@ def _check_cryptography(cryptography_version):
         warning = 'Old version of cryptography ({0}) may cause slowdown.'.format(cryptography_version)
         warnings.warn(warning, RequestsDependencyWarning)
 
+```
+
+```
 # Check imported dependencies for compatibility.
 try:
     check_compatibility(urllib3.__version__, chardet.__version__)
@@ -113,7 +124,9 @@ try:
     _check_cryptography(cryptography_version)
 except ImportError:
     pass
+```
 
+```
 # urllib3's DependencyWarnings should be silenced.
 from urllib3.exceptions import DependencyWarning
 warnings.simplefilter('ignore', DependencyWarning)
@@ -134,6 +147,9 @@ from .exceptions import (
     FileModeWarning, ConnectTimeout, ReadTimeout
 )
 
+```
+
+```
 # Set default logging handler to avoid "No handler found" warnings.
 import logging
 try:  # Python 2.7+
@@ -147,3 +163,4 @@ logging.getLogger(__name__).addHandler(NullHandler())
 
 # FileModeWarnings go off per the default.
 warnings.simplefilter('default', FileModeWarning, append=True)
+```
