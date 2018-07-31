@@ -2,6 +2,8 @@ site_name: requests 库源代码注解
 pages:
     - 开始: index.md
     - 初始化: __init__.py.md
+    - 版本信息: __version__.py.md
+    - API: api.py.md
 theme:
   name: 'material'
 markdown_extensions:
