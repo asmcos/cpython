@@ -8,10 +8,10 @@
 """
 Requests HTTP Library
 ~~~~~~~~~~~~~~~~~~~~~
-
+注释部分，解释 库的使用方法
 Requests is an HTTP library, written in Python, for human beings. Basic GET
 usage:
-
+1. 使用方法如下
    >>> import requests
    >>> r = requests.get('https://www.python.org')
    >>> r.status_code
@@ -20,7 +20,9 @@ usage:
    True
 
 ... or POST:
+2. post是带有参数的，post参数在data里面，其实get可以带有参数，使用params=传递。
 
+参数格式使用字典和元祖都可以
    >>> payload = dict(key1='value1', key2='value2')
    >>> r = requests.post('http://httpbin.org/post', data=payload)
    >>> print(r.text)
@@ -39,13 +41,20 @@ is at <http://python-requests.org>.
 :copyright: (c) 2017 by Kenneth Reitz.
 :license: Apache 2.0, see LICENSE for more details.
 """
+以上是注释部分，下面是代码
 
+代码部分
+---------
+
+```
 import urllib3
 import chardet
 import warnings
 from .exceptions import RequestsDependencyWarning
+```
+requests 库基础应用还是urllib3
 
-
+```
 def check_compatibility(urllib3_version, chardet_version):
     urllib3_version = urllib3_version.split('.')
     assert urllib3_version != ['dev']  # Verify urllib3 isn't installed from git.
@@ -69,7 +78,7 @@ def check_compatibility(urllib3_version, chardet_version):
     assert major == 3
     assert minor < 1
     assert patch >= 2
-
+```
 
 def _check_cryptography(cryptography_version):
     # cryptography < 1.3.4
