@@ -116,6 +116,7 @@ class HTTPProxyAuth(HTTPBasicAuth):
 
 ```
 
+## 密码拼接
 验证用户和名密码 拼接后 放在 headers 里面，发送出去。
 `r.headers['Authorization']`
 
@@ -322,6 +323,7 @@ class HTTPDigestAuth(AuthBase):
         return not self == other
 ```
 
+## digest认证
 
 !!! note "http基本认证和digest认证"
     基本流程都是如下：
