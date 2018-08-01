@@ -36,7 +36,7 @@ request 参数
 * cert, 支持.pem 文件和 key文件
 
 
-```
+``` python
 from . import sessions
 
 
@@ -88,7 +88,7 @@ def request(method, url, *kwargs):
 ```
 
 
-```
+``` python
 def get(url, params=None, **kwargs):
     r"""Sends a GET request.
 
