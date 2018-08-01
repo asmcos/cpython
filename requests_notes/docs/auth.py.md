@@ -323,10 +323,10 @@ class HTTPDigestAuth(AuthBase):
 ```
 
 
-!!! note "http基本认证和digest认证""
+!!! note "http基本认证和digest认证"
     基本流程都是如下：
-    a.客户端发起GET请求
-    b.服务器响应401 Unauthorized，WWW-Authenticate指定认证算法，realm指定安全域
-    c.客户端重新发起请求，Authorization指定用户名和密码信息
-    d.服务器认证成功，响应200，可选Authentication-Info
-    更多digest，可以搜索一下。😄
+    * a.客户端发起GET请求
+    * b.服务器响应401 Unauthorized，WWW-Authenticate指定认证算法，realm指定安全域
+    * c.客户端重新发起请求，Authorization指定用户名和密码信息
+    * d.服务器认证成功，响应200，可选Authentication-Info
+    * 更多digest，可以搜索一下。😄
