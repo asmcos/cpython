@@ -1,3 +1,5 @@
+
+``` python
 # -*- coding: utf-8 -*-
 
 """
@@ -6,7 +8,10 @@ requests.auth
 
 This module contains the authentication handlers for Requests.
 """
+```
 
+
+``` python
 import os
 import re
 import time
@@ -67,8 +72,13 @@ def _basic_auth_str(username, password):
     )
 
     return authstr
+```
+
+* 验证字符串，先转换字符串格式
+* 用“：”,连接程 "username:password" 格式
 
 
+``` python
 class AuthBase(object):
     """Base class that all auth implementations derive from"""
 
@@ -104,7 +114,14 @@ class HTTPProxyAuth(HTTPBasicAuth):
         r.headers['Proxy-Authorization'] = _basic_auth_str(self.username, self.password)
         return r
 
+```
 
+验证用户和名密码 拼接后 放在 headers 里面，发送出去。
+`r.headers['Authorization']`
+
+如果使用代理，header 参数为 `Proxy-Authorization`
+
+``` python
 class HTTPDigestAuth(AuthBase):
     """Attaches HTTP Digest Authentication to the given Request object."""
 
@@ -303,3 +320,13 @@ class HTTPDigestAuth(AuthBase):
 
     def __ne__(self, other):
         return not self == other
+```
+
+
+!!! note "http基本认证和digest认证""
+    基本流程都是如下：
+    a.客户端发起GET请求
+    b.服务器响应401 Unauthorized，WWW-Authenticate指定认证算法，realm指定安全域
+    c.客户端重新发起请求，Authorization指定用户名和密码信息
+    d.服务器认证成功，响应200，可选Authentication-Info
+    更多digest，可以搜索一下。😄
