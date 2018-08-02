@@ -1,3 +1,4 @@
+``` python
 # -*- coding: utf-8 -*-
 
 """
@@ -20,8 +21,13 @@ try:
     import threading
 except ImportError:
     import dummy_threading as threading
+```
 
+## 封装一个request（请求）类
 
+主要是host,header 的操作，就这个类来说并没有特定到cookie，而是一个通用的操作。
+
+``` python
 class MockRequest(object):
     """Wraps a `requests.Request` to mimic a `urllib2.Request`.
 
@@ -114,7 +120,10 @@ class MockResponse(object):
     def getheaders(self, name):
         self._headers.getheaders(name)
 
+```
+Response 没有特别详细的操作
 
+``` python
 def extract_cookies_to_jar(jar, request, response):
     """Extract the cookies from the response into a CookieJar.
 
@@ -131,7 +140,10 @@ def extract_cookies_to_jar(jar, request, response):
     res = MockResponse(response._original_response.msg)
     jar.extract_cookies(res, req)
 
+```
+将response 里面的cookies 转换程CookieJar 存到request里。
 
+``` python
 def get_cookie_header(jar, request):
     """
     Produce an appropriate Cookie header string to be sent with `request`, or None.
@@ -544,3 +556,6 @@ def merge_cookies(cookiejar, cookies):
                 cookiejar.set_cookie(cookie_in_jar)
 
     return cookiejar
+```
+
+cookies 的增删该查接口， 复制，合并

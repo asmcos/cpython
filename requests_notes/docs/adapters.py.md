@@ -1,3 +1,12 @@
+
+## adapter
+
+我找了一个别人写的立即，我觉得很清楚。粘贴到下面：
+
+使用连接池的时候不是任何时候都有效，仅当你使用了多线程之类的并发才有效果，如果你是单线程的，那么你将不会得到连接池的任何好处，因为单线程里面是串行的，就是说一个线程对应一个连接。此外，里面还说了HttpAdapter的俩个参数的含义：pool_connections, 是指你的后台程序最多连接多少个不同的主机；pool_maxsize, 是指针对每个主机你能创建的连接最大有多少个（底层TCP）。注，这里不是初始多少个和最大多少个的意思！！！
+
+
+``` python
 # -*- coding: utf-8 -*-
 
 """
@@ -528,3 +537,4 @@ class HTTPAdapter(BaseAdapter):
                 raise
 
         return self.build_response(request, resp)
+```

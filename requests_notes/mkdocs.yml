@@ -5,6 +5,8 @@ pages:
     - 版本信息: __version__.py.md
     - API: api.py.md
     - http 密码验证: auth.py.md
+    - adapters: adapters.py.md
+    - cookies: cookies.py.md
 theme:
   name: 'material'
 markdown_extensions:
