@@ -1,3 +1,5 @@
+
+``` python
 # -*- coding: utf-8 -*-
 
 """
@@ -55,8 +57,14 @@ REDIRECT_STATI = (
 DEFAULT_REDIRECT_LIMIT = 30
 CONTENT_CHUNK_SIZE = 10 * 1024
 ITER_CHUNK_SIZE = 512
+```
+
+## 第一部分、 Request 部分
+
+主要处理 请求参数，检查，拼接，转换
 
 
+``` python
 class RequestEncodingMixin(object):
     @property
     def path_url(self):
@@ -582,7 +590,11 @@ class PreparedRequest(RequestEncodingMixin, RequestHooksMixin):
         for event in hooks:
             self.register_hook(event, hooks[event])
 
+```
 
+## 返回内容的处理
+
+``` python
 class Response(object):
     """The :class:`Response <Response>` object, which contains a
     server's response to an HTTP request.
