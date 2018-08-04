@@ -7,6 +7,7 @@ pages:
     - http 密码验证: auth.py.md
     - adapters: adapters.py.md
     - cookies: cookies.py.md
+    - sessions: sessions.py.md
 theme:
   name: 'material'
 markdown_extensions:

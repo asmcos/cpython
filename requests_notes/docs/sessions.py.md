@@ -1,3 +1,5 @@
+
+``` python
 # -*- coding: utf-8 -*-
 
 """
@@ -747,3 +749,4 @@ def session():
     :rtype: Session
     """
     return Session()
+```
