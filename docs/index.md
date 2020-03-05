@@ -11,6 +11,9 @@ cpython 是python里面的一个专业名词：CPython，同时又是China Pytho
 本站代码和例子均开源
 * https://github.com/asmcos/cpython
 
+## 插播广告，我的新玩意，专门为创业者打造的创业问答社区
+* http://www.zhanluejia.net.cn
+
 ## 定位
 本站定位是给刚入校的大学生提供基础教程，一般大学生学习编程是从大一下学期开始和大二全学年。
 其实选择python作为入门会很棒，它易学；python能让大家体验到编程的趣味性。
