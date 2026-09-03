@@ -10,7 +10,7 @@
 ## 本地预览
 
 ```
-python -m pip install mkdocs
+python -m pip install mkdocs-material
 mkdocs serve
 ```
 

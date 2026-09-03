@@ -1,7 +1,8 @@
 site_name: 智普教育 jeapedu · Python 入门与金融科技
 site_url: https://jeapedu.com
 site_description: 给大学生的 Python 3.12 入门教程，以及金融科技学生学习大纲
-theme: readthedocs
+theme:
+  name: material
 nav:
   - 首页: index.md
   - 第一部分 · 大学生 Python 入门:
