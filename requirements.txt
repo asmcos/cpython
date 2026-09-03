@@ -1,0 +1,3 @@
+# 钉在 MkDocs 1.x。Material 主题不兼容 MkDocs 2.0。
+mkdocs>=1.6.1,<2
+mkdocs-material>=9.7.5,<10
