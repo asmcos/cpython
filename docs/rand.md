@@ -1,40 +1,40 @@
-#随机数
+# 随机数
 
-随机数是python自带的一个库（模块），一般安装好python就可以直接引用随机数模块了
-
-# 引用
+`random` 是 Python 自带模块，装好 Python 就能用。
 
 ```
 import random
 
-a = random.randint(1,10)
+a = random.randint(1, 10)
+print(a)
 ```
 
-a 是从1到10中任意一个数字，包含1和10。
-也就是说可能会随机出1或者10来。
+`randint(1, 10)` 会在 1 到 10 里随机一个整数，包含 1 和 10。
 
 ```
-random.random()
+print(random.random())
 ```
 
-会随机一个浮点数出来
+`random()` 随机一个 `0` 到 `1` 之间的小数。
 
-# 随机选一个
-
-```
-random.choice(["a",1,43,544])
-```
-
-# 给列表乱序
+## 从列表里选一个
 
 ```
-l = ["432","hello",1,"a"]
+print(random.choice(["a", 1, 43, 544]))
+```
+
+## 打乱列表
+
+```
+l = ["432", "hello", 1, "a"]
 random.shuffle(l)
 print(l)
 ```
 
-#结果
+`shuffle` 会直接改原来的列表。每次运行顺序可能不同，例如：
 
 ```
 [1, '432', 'hello', 'a']
 ```
+
+后面做抽样、模拟行情波动时还会用到随机数。这一节先会这三个函数即可。

@@ -1,61 +1,47 @@
-#coding:utf-8
-
-class CPython:
-    """ 简单的类实例 """
+class JeapeSite:
     n = "demo"
 
     def get_name(self):
-        return "CPython"
+        return "jeapedu"
 
-a = CPython()
 
+a = JeapeSite()
 print(a.n)
-
 print(a.get_name())
 
-""" 初始化函数 """
 
-class CPython1:
-    """ 简单的类实例 """
+class JeapeSite1:
     n = "demo"
 
     def __init__(self):
-        self.data = ['1',2,3,"456"]
+        self.data = ["1", 2, 3, "456"]
 
     def get_name(self):
-        return "CPython"
+        return "jeapedu"
 
-    def set_name(self,name):
+    def set_name(self, name):
         self.name = name
 
 
-b = CPython1()
-
+b = JeapeSite1()
 print(b.data)
-
-b.set_name("cpython1")
+b.set_name("jeapedu1")
 print(b.name)
 
 
-"""带参数的初始化"""
-class CPython2:
-    """ 简单的类实例 """
-    n = "demo"
-
-    def __init__(self,name):
-        self.data = ['1',2,3,"456"]
+class JeapeSite2:
+    def __init__(self, name):
+        self.data = ["1", 2, 3, "456"]
         self.name = name
 
     def get_name(self):
         return self.name
 
-    def set_name(self,name):
+    def set_name(self, name):
         self.name = name
 
-c = CPython2("cpython2")
 
+c = JeapeSite2("jeapedu2")
 print(c.get_name())
-
-c.set_name("2cpython")
-
+c.set_name("2jeapedu")
 print(c.get_name())

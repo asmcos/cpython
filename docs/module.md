@@ -1,10 +1,6 @@
-#模块
+# 模块
 
->模块就是已经写好的部分代码，你可以引用
-
-系统也内置了一些写好的模块。
-
-例如：
+模块就是已经写好的代码，你可以引用。Python 自己也带了一批模块。
 
 ```
 import os
@@ -12,77 +8,58 @@ import sys
 import time
 ```
 
-上面三句就是分别引入了三个模块，你可以随便引用其中某一个模块。
-os，就是和操作系统相关的 命令。 打开文件，执行文件，切换目录，修改文件名 等都可以。
+* `os`：和操作系统有关，例如当前目录、文件名
+* `sys`：程序参数、Python 版本、模块搜索路径
+* `time`：时间戳、延时
 
-sys，可以获取程序的执行参数，python版本号，python加载库的路径
-
-time，是和时间相关的。例如：time.time() 获取的就是秒数。time.sleep(1),等待1秒。
-
-使用方法：
-------------------
+## 使用
 
 ```
 print(time.time())
-
 print(sys.version)
-
-print(os.uname())
-
+print(os.getcwd())
 time.sleep(1)
-
 print(time.time())
 ```
 
-例子中很多我都是显示了模块的函数执行结果。 实际开发中，并不是用来显示的，而是计算。
+`os.getcwd()` 在 Windows、macOS、Linux 都能用。`os.uname()` 只在部分 Unix 系统上有，入门阶段不要用它。
 
-更多的引用方法
------------
+这些函数在真实项目里通常是拿来计算，不一定打印。
+
+## 另一种引用写法
 
 ```
 from sys import version
 
-print (version)
-
-from os import uname
-
-print(uname())
-
+print(version)
 ```
 
+`from 模块 import 名字` 之后，可以直接用这个名字，不用再写 `模块.`。
 
-#自建一个模块
+## 自己写一个模块
+
+把下面代码保存为 `examples/cpython.py`：
 
 ```
-#coding:utf-8
+website = "https://jeapedu.com"
 
-""" 这是一个自己写的 module demo """
 
-website = "http://www.cpython.org"
-
-def help ():
+def help():
     print("*" * 10)
-
-    print("cpython.org是一个入门文档网站 %s" % website)
-
+    print(f"jeapedu.com 是一个入门文档网站 {website}")
     print("*" * 10)
     print(" ")
 ```
 
-我把上面的代码独立命名了cpython.py 你可以到cpython/examples 目录下寻找
+## 引用自己的模块
 
-```
-https://github.com/asmcos/cpython/tree/master/examples
-```
-
-#引用自己建立的模块
+在同一个目录下：
 
 ```
 import cpython
 
 print(cpython.website)
 cpython.help()
-
 ```
 
-cpython模块有一个变量和一个函数可以被引用。 例子见代码。
+这个模块里有一个变量 `website` 和一个函数 `help()`。例子见仓库 `examples/` 目录。

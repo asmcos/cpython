@@ -1,101 +1,83 @@
-
 # 文件处理
 
-python 对于文件的处理在我的工作当中会经常用到, 而且应用生活中有很大的用途, 今天我们讲对于文件的读写, 和一些容易碰到的错误。
+读文件、写文件是日常编程里最常用的能力之一。
 
-# 读文件
+Python 3.12 推荐用 `with open(...) as f`。它会在用完后自动关闭文件，不容易忘记 `close()`。
 
-open 函数
+## 读文件
+
+假设 `test.txt` 内容是：
+
 ```
-可以利用open函数创建一个file对象,调用file的相关方法进行文件的基础操作。
-
-Help on built-in function open in module __builtin__:
-
-open(...)
-    open(name[, mode[, buffering]]) -> file object
-
-    Open a file using the file() type, returns a file object.  This is the
-    preferred way to open a file.  See file.__doc__ for further information.
-(END)
-
-上面是通过help函数得到关于open函数的描述。
-
-name: 需要访问的文件名(可以指定相对和绝对地址)
-mode: 文件的读取模式(读, 写, 追加等。)
-buffering: 文件的寄存区(可以后续了解)
-
-读取文件
-
-test.txt内容如下
 hello world
 i am a boy
 i am very happy
-
-f = open('test.txt', 'r')
-data = f.read()
-f.close()
-
-print (data)
-
-
 ```
 
-# open 无参数 用法
-
 ```
-f = open('a.txt')
-```
-打开一个文件,a.txt 必须存在，文件不存在的下面write再讲解。
+with open("test.txt", encoding="utf-8") as f:
+    data = f.read()
 
-# read
-
-```
-content = f.read()
+print(data)
 ```
 
-读出所有的内容
+`encoding="utf-8"` 建议写上，中文文件在 Windows 上更不容易乱码。
 
-现在内容都在content里面了。再调用read() 就没有内容了。
+`open` 的第一个参数是文件名，可以是相对路径或绝对路径。第二个常见参数是模式：
 
-# readlines
+* `r`：读（默认）
+* `w`：写，文件不存在就创建，存在就覆盖
+* `a`：追加
+* `r+`：读写，文件必须存在
 
-```
-f = open("a.txt")
-lines = f.readlines()
-for i in lines：
-  print(i)
-```
-lines 格式是列表，每一行是一个列表成员。
-
-
-# write
+## read 和 readlines
 
 ```
-f = open("a.txt","w")
-f.write("hello")
-f.close()
+with open("test.txt", encoding="utf-8") as f:
+    content = f.read()
 ```
 
-写完了，必须关闭。一般调用关闭才能保存
+`read()` 一次读完全部内容。再读一次就是空的。
 
-open 第一个参数是 文件名称，第二个是"w",
-* 表示可以写，
-* 并且如果文件不存在会建立文件
-* 如果文件存在，会覆盖老文件
-
-如果要是打开可读写，不覆盖。 用"r+"参数
+按行读：
 
 ```
-f = open("a.txt","r+")
-f.write("world")
-f.close()
+with open("test.txt", encoding="utf-8") as f:
+    lines = f.readlines()
+
+for line in lines:
+    print(line)
 ```
 
+`lines` 是列表，每个元素是一行。
 
-#close
-
-文件打开了，要是读写了。必须关闭
+也可以直接循环文件对象：
 
 ```
-f.close()
+with open("test.txt", encoding="utf-8") as f:
+    for line in f:
+        print(line.strip())
 ```
+
+## 写文件
+
+```
+with open("a.txt", "w", encoding="utf-8") as f:
+    f.write("hello")
+```
+
+`"w"` 会覆盖旧文件。不想覆盖、只在末尾加内容，用 `"a"`。
+
+## 路径
+
+处理路径时，3.12 也可以用 `pathlib`：
+
+```
+from pathlib import Path
+
+p = Path("test.txt")
+print(p.exists())
+print(p.read_text(encoding="utf-8"))
+```
+
+入门先把 `open` 写熟。`Path` 在后面做金融数据读写时会更方便。

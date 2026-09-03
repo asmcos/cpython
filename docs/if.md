@@ -1,66 +1,83 @@
-# if
-判断语句，常见的会和else 一起用。
+# if 判断
 
+条件成立时执行缩进的代码。常常和 `else`、`elif` 一起用。
 
-### 例子1，判断调试是否成立，成立时打印
-
-```
-a = 5
-if a > 1:
-   print(a)
-```
-
-结果大家知道肯定是打印。
-
-### 接下来讲缩进的语法块
+## 条件成立就打印
 
 ```
 a = 5
 if a > 1:
-   b = a
-   print(b)
+    print(a)
+```
+
+结果是 `5`。
+
+## 缩进决定哪些语句属于 if
+
+```
+a = 5
+if a > 1:
+    b = a
+    print(b)
 
 c = b
+print(c)
 ```
 
-## 结果
+`b = a` 和 `print(b)` 只有条件成立才会执行。`c = b` 和 if 无关。
+
+## 条件不成立会怎样
 
 ```
-5
-```
-
-上面的语句，中 b=a 和 print（b） 是根据if 条件成立的时候执行的，
-
-而c=b 和if条件无关。
-
-if条件语句 当条件成立后， 所有缩进的语句都会执行，直到 非缩进语句出现。
-
-### 接下看一个例子
-
-```
-#coding:utf-8
-
 a = 5
 
 if a > 6:
-   b = a
-   print(b)
+    b = a
+    print(b)
 
 c = b
-
 ```
 
-# 结果如何
+结果：
 
 ```
 Traceback (most recent call last):
-  File "examples/if.py", line 9, in <module>
+  File "examples/if.py", line 8, in <module>
     c = b
 NameError: name 'b' is not defined
 ```
 
-## 为什么？错了！
+`a > 6` 不成立，所以没有执行 `b = a`，后面使用 `b` 就会报错。
 
-提示b不存在，b为什么不存在？因为 a > 6不成立， 所以没有执行b=a
+## else 和 elif
 
-所以b不存在。
+```
+score = 75
+
+if score >= 90:
+    print("优秀")
+elif score >= 60:
+    print("及格")
+else:
+    print("不及格")
+```
+
+结果是 `及格`。
+
+## Python 3.10 起可以用 match
+
+3.12 也可以用 `match / case`，适合拿一个值去匹配几种情况：
+
+```
+op = "+"
+
+match op:
+    case "+":
+        print(1 + 2)
+    case "-":
+        print(1 - 2)
+    case _:
+        print("未知运算")
+```
+
+入门阶段把 `if / elif / else` 写熟即可。`match` 以后见到能看懂就行。

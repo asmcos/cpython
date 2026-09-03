@@ -1,28 +1,43 @@
-site_name: cPython - 给大学生的入门教程
-pages:
-    - 关于本站: index.md
+site_name: 智普教育 jeapedu · Python 入门与金融科技
+site_url: https://jeapedu.com
+site_description: 给大学生的 Python 3.12 入门教程，以及金融科技学生学习大纲
+theme: readthedocs
+nav:
+  - 首页: index.md
+  - 第一部分 · 大学生 Python 入门:
+    - 导读: part1/index.md
+    - 安装 Python 3.12: part1/install.md
+    - 附录一：学习目录和测试环境: part1/appendix1.md
     - 开始: start.md
     - 变量: variables.md
     - 字符串: string.md
     - 列表: list.md
     - 元组: tuple.md
+    - 字典: dict.md
     - range: range.md
-    - For: for.md
-    - If: if.md
-    - 切片／slice: slice.md
-    - dict: dict.md
+    - for 循环: for.md
+    - if 判断: if.md
+    - 切片: slice.md
     - 函数: functions.md
     - 模块: module.md
-    - 安装模块（pip）: pip.md
+    - 安装模块（pip / venv）: pip.md
     - 类: class.md
-    - 随机数: rand.md
-    - 正则: re.md
     - 字符串函数: string_func.md
     - 列表函数: list_func.md
-    - 时间函数: time.md
+    - 时间: time.md
     - 文件处理: file.md
     - 错误和异常: error_except.md
-    - 调试: debug.md
+    - 随机数: rand.md
+    - 正则: re.md
     - 常用内置函数: built_in_func.md
-    - requests: requests.md
-theme: readthedocs
+    - 调试: debug.md
+  - 第二部分 · 金融科技学习大纲:
+    - 大纲总览: fintech/index.md
+    - 十六周进度: fintech/week.md
+    - 数据处理（NumPy / Pandas）: fintech/numpy_pandas.md
+    - 金融数据获取: fintech/data.md
+    - 可视化与时间序列: fintech/viz.md
+    - 金融计算: fintech/calc.md
+    - 量化分析入门: fintech/quant.md
+    - 网络接口（requests）: fintech/api.md
+    - 学期项目: fintech/project.md

@@ -1,25 +1,30 @@
 # time
 
-时间库，我是用的最多的是下面的几个用法
+时间模块入门阶段常用下面几个函数。
 
 ```
 import time
-In [3]: time.time()
-Out[3]: 1532510243.135594
 
-In [4]: time.sleep(1)
-
-In [5]: time.ctime()
-Out[5]: 'Wed Jul 25 17:17:34 2018'
-
-In [6]: time.sleep(1)
-
-In [7]: time.ctime()
-Out[7]: 'Wed Jul 25 17:17:42 2018'
+print(time.time())
+time.sleep(1)
+print(time.ctime())
 ```
 
-time() 获取unix 时间戳，这是小数点前面的是 秒：1532510243秒。
+* `time.time()`：Unix 时间戳，整数部分是秒
+* `time.sleep(n)`：停 n 秒
+* `time.ctime()`：当前时间的可读字符串
 
-sleep(n) 延时n秒
+示例输出（数字会随你运行的时刻变化）：
 
-ctime()  年月日
+```
+1735600000.123456
+Thu Jan  1 12:00:01 2026
+```
+
+如果要按自己的格式输出年、月、日，可以用 `time.strftime`：
+
+```
+print(time.strftime("%Y-%m-%d %H:%M:%S"))
+```
+
+金融数据后面会大量用到「日期」和「时间序列」，这一节先把秒、延时、当前时间这三件事记熟。

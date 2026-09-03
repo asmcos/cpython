@@ -1,102 +1,100 @@
-#  字符串函数
+# 字符串函数
 
-字符串是python内置的类。我们可以直接使用，并且python已经内置了几个非常好用的函数
+字符串是 Python 内置类型，自带一批常用方法。
 
+## 查看有哪些方法
 
-# 查看字符串的属性和方法
+在交互环境里：
 
-    ```
-    >>> s = 'r'
-    >>> print dir(s)
-    ['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
-    ```
+```
+>>> s = "hello"
+>>> print(dir(s))
+```
 
-# 如何使用这些方法
+会列出很多名字。下面这些入门阶段最常用。
 
-    通过dir()函数可以得到字符串对象的属性和方法, 但如何去查看怎么去使用它们呢？并不需要去网上搜索。
+不知道某个方法怎么用时，用 `help`：
 
-    ```
-    >>> help(s.find)
+```
+>>> help(s.find)
+```
 
-    Help on built-in function find:
+不必先去网上搜。
 
-    find(...)
-        S.find(sub [,start [,end]]) -> int
+## split
 
-        Return the lowest index in S where substring sub is found,
-        such that sub is contained within S[start:end].  Optional
-        arguments start and end are interpreted as in slice notation.
-
-        Return -1 on failure.
-    (END)
-    ```
-
-    以上就是通过了python 的help模块可以轻易的得到你想要的任何方法的使用文档。
-
-# split
+按分隔符把字符串拆成列表。
 
 ```
 s = "Whether you're new to programming or an experienced developer, it's easy to learn and use Python."
-
 print(s.split(" "))
-
 ```
 
-上面一段话来自python.org 。 我们用空格将其分开。
-
-结果
-----
+结果：
 
 ```
 ['Whether', "you're", 'new', 'to', 'programming', 'or', 'an', 'experienced', 'developer,', "it's", 'easy', 'to', 'learn', 'and', 'use', 'Python.']
 ```
 
-这个功能应用非常广泛。
+这段话来自 python.org。按空格拆开，在处理日志、CSV 粗分列时很常见。
 
+## strip
 
-# strip
+去掉两端空白。
 
 ```
 s1 = "  good   "
 print(s1)
 print(s1.strip())
 ```
-这个功能将字符串两端的 空白都除掉。
-
 
 ```
-  good   
+  good
 good
 ```
 
-# join
+## join
 
-连接，这个在实际编程的时候拼接非常好。
+把列表拼成一个字符串。
 
 ```
-l = ['04','f4','03','e2','54','76','10']
-
-print ("-".join(l))
+l = ["04", "f4", "03", "e2", "54", "76", "10"]
+print("-".join(l))
 ```
-
-结果
 
 ```
 04-f4-03-e2-54-76-10
 ```
 
+## find
 
-# find
-
-```
-In [7]: s = "fdsa"
-
-In [8]: s.find("a")
-Out[8]: 3
-
-In [9]: s.find("s")
-Out[9]: 2
+查找子字符串，返回第一次出现的下标。找不到返回 `-1`。
 
 ```
-在字符串中查找 某个子字符串，返回找到的位置。
-找不到的时候返回 "-1"
+s = "fdsa"
+print(s.find("a"))
+print(s.find("s"))
+print(s.find("z"))
+```
+
+```
+3
+2
+-1
+```
+
+## replace 和 f-string
+
+```
+s = "hello python"
+print(s.replace("python", "jeapedu"))
+
+name = "Ana"
+score = 92
+print(f"{name} 的成绩是 {score}")
+```
+
+```
+hello jeapedu
+Ana 的成绩是 92
+```

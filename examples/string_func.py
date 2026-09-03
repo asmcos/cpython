@@ -1,28 +1,21 @@
-#coding:utf-8
+s = "Whether you're new to programming or an experienced developer, it's easy to learn and use Python."
+print(s.split(" "))
 
-l1 = [1,2,3,4]
+s1 = "  good   "
+print(s1)
+print(s1.strip())
 
-'''
-计算机的排序是从0开始
-打印列表第三个元素
-'''
-print(l1[3])
+l = ["04", "f4", "03", "e2", "54", "76", "10"]
+print("-".join(l))
 
-'''
-打印列表第0个元素
-'''
-print(l1[0])
+s = "fdsa"
+print(s.find("a"))
+print(s.find("s"))
+print(s.find("z"))
 
+s = "hello python"
+print(s.replace("python", "jeapedu"))
 
-l2 = ['abc','1','hello',1]
-
-'''
-列表是可以存放字符串，字符，和int类型的
-'''
-
-print(l2[0])
-
-'''
--1是指最后一个，字符章节演示过
-'''
-print(l2[-1])
+name = "Ana"
+score = 92
+print(f"{name} 的成绩是 {score}")

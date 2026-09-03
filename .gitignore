@@ -29,3 +29,19 @@ Temporary Items
 
 .gitignore
 .idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# MkDocs
+site/

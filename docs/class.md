@@ -1,105 +1,82 @@
 # 类
 
-我对类的理解就是 程序化的包装，让代码变的规范化，流程化。
-更好使用。
+类是把数据和操作这些数据的函数放在一起的一种写法。用类可以让代码更整齐。
 
-定义一个类
---------
+## 定义一个类
 
 ```
-class CPython:
-    """ 简单的类实例 """
+class JeapeSite:
     n = "demo"
 
     def get_name(self):
-        return "CPython"
-
+        return "jeapedu"
 ```
 
-上面例子定义了一个类，类里有一个变量 n，和一个函数 get_name
-这些都是例子，可以没有。
+类里面可以有变量，也可以有函数。这些都不是必须的：
 
 ```
-class test:
-  pass
+class Test:
+    pass
 ```
 
-什么都没有的类。
+`pass` 表示这里暂时什么都不写。
 
-继续讲CPython类。
-
-调用
-----
+## 创建实例
 
 ```
-a = CPython()
+a = JeapeSite()
 
 print(a.n)
-
 print(a.get_name())
 ```
 
-这里的a 叫做CPython类的实例。
+`a` 叫做 `JeapeSite` 的实例。`self` 代表当前这个实例。
 
-
-继续定一个 带初始化函数的类
-------------------------
+## 初始化函数
 
 ```
-class CPython1:
-    """ 简单的类实例 """
+class JeapeSite1:
     n = "demo"
 
     def __init__(self):
-        self.data = ['1',2,3,"456"]
+        self.data = ["1", 2, 3, "456"]
 
     def get_name(self):
-        return "CPython"
+        return "jeapedu"
 
-    def set_name(self,name):
+    def set_name(self, name):
         self.name = name
 
 
-b = CPython1()
-
+b = JeapeSite1()
 print(b.data)
 
-b.set_name("cpython1")
+b.set_name("jeapedu1")
 print(b.name)
-
 ```
 
-例子中 __init__ 是在 b = CPython1()的时候调用的。
+`__init__` 在 `b = JeapeSite1()` 时自动执行。
 
-set_name 是另一个函数，调用它可以设置变量name。这里都是例子。
-
-
-下一个初始化函数带参数
-------------------
+## 初始化时传入参数
 
 ```
-"""带参数的初始化"""
-class CPython2:
-    """ 简单的类实例 """
-    n = "demo"
-
-    def __init__(self,name):
-        self.data = ['1',2,3,"456"]
+class JeapeSite2:
+    def __init__(self, name):
+        self.data = ["1", 2, 3, "456"]
         self.name = name
 
     def get_name(self):
         return self.name
 
-    def set_name(self,name):
+    def set_name(self, name):
         self.name = name
 
-c = CPython2("cpython2")
 
+c = JeapeSite2("jeapedu2")
 print(c.get_name())
 
-c.set_name("2cpython")
-
+c.set_name("2jeapedu")
 print(c.get_name())
 ```
 
-通过参数设置name，通过set_name修改了name。
+创建对象时把名字传进去，以后也可以用 `set_name` 改掉。

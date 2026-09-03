@@ -1,95 +1,62 @@
 # 字典 dict
 
-```
-In [8]: d={}
-
-In [9]: d['a'] =1
-
-In [10]: d['b'] =3
-
-In [11]: print(d)
-{'a': 1, 'b': 3}
-```
-
-定义了一个字典 d， 给字典添加一项，key为"a",value为1
-
-再添加一项 key为“b”，value 为3
-
-获取所有的keys
-------------
-
-```
-d.keys()
-```
-
-结果为一个列表。
-
->参考一下代码
-
+字典用来保存「名字 → 值」。名字叫做 key，值叫做 value。
 
 ```
 d = {}
-
-
-d['a']    = 1
-d['b']    = "hello"
-d['name'] = "Jike"
-d['age']  = 21
-
-
-""" 第二段 """
-
-for k in d.keys():
-    """ key """
-    print (k),
-    """ value """
-    print (d[k])
+d["a"] = 1
+d["b"] = 3
+print(d)
 ```
 
+结果：
 
-结果
-----
+```
+{'a': 1, 'b': 3}
+```
+
+## 遍历
+
+Python 3 里 `d.keys()` 不是列表，而是一个视图。直接拿来循环即可：
+
+```
+d = {}
+d["a"] = 1
+d["b"] = "hello"
+d["name"] = "Jike"
+d["age"] = 21
+
+for k in d.keys():
+    print(k, d[k])
+```
+
+也可以一次取出 key 和 value：
+
+```
+for k, v in d.items():
+    print(k, v)
+```
+
+## 追加和删除
+
+```
+b = {"g": [1, 2, 3], "a": 2}
+
+d.update(b)
+del d["b"]
+print(d)
+```
+
+`update` 会把另一个字典合进来。相同的 key 会被后写入的值覆盖。`del d["b"]` 删除的是 key 为 `"b"` 的那一项。
+
+## 执行结果（示例）
 
 ```
 a 1
-age 21
 b hello
 name Jike
-```
-
-
-追加和删除
----------
-
-```
-b = {'g':[1,2,3],'a':2}
-
-""" 这个有追加效果,相同的key会被覆盖掉 """
-d.update(b)
-
-print(d)
-
-
-del d['b']
-```
-
-d update 了b之后，的就是 之前的内容加上后来b的内容，结果自己做一下实验看看
-
-这里删除 是删除了  key ‘b’，而不是 {'g':[1,2,3],'a':2}
-
-key 为b的内容 “hello”
-
-最后结果如下：
-
-```
+age 21
 {'a': 2, 'name': 'Jike', 'g': [1, 2, 3], 'age': 21}
 ```
 
-
-字典支持 同时获取 k和v的方法
-
-
-```
-for k,v in d.items():
-    print (k,v)
-```
+字典在 Python 3.12 里默认按插入顺序排列。

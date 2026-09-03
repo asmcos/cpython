@@ -1,28 +1,18 @@
-#coding:utf-8
+l = []
+l.append(1)
+l.append("3243")
+l.append("a")
+l.append(["good", "morning"])
+print(l)
 
-l1 = [1,2,3,4]
+print(l.pop())
+print(l)
 
-'''
-计算机的排序是从0开始
-打印列表第三个元素
-'''
-print(l1[3])
+l.insert(2, "insss")
+print(l)
 
-'''
-打印列表第0个元素
-'''
-print(l1[0])
-
-
-l2 = ['abc','1','hello',1]
-
-'''
-列表是可以存放字符串，字符，和int类型的
-'''
-
-print(l2[0])
-
-'''
--1是指最后一个，字符章节演示过
-'''
-print(l2[-1])
+nums = [3, 1, 2]
+print(len(nums))
+print(sorted(nums))
+nums.sort()
+print(nums)

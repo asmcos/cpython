@@ -1,28 +1,50 @@
 # 安装其他模块
 
-> 现在 python 将第三方模块 放在 https://pypi.org/
+第三方模块发布在 https://pypi.org/ ，用 pip 安装。
 
-我们可以通过 pip 去安装 pypi.org上的库。
+Python 3.12 请用下面的方式，不要用 `sudo pip install`。那样容易把系统环境弄乱。
 
-目前Windows 安装python以后就自带了 pip命令。 Mac OSX 也是自带了pip。
-Linux需要安装一下。 例如：ubuntu ，sudo aptitude install python3-pip
-不同的Linux 安装命令有差异。可能需要自己寻找一下。
+## 先建虚拟环境
 
-# 使用方法
-
-注意：：：：这是命令行里面输入的，例子为:ubuntu 系统
+在项目目录里：
 
 ```
-sudo pip install requests
+python -m venv .venv
 ```
 
-安装一个requests 网络请求模块.
+激活环境：
 
-# 引用安装好的模块
+* Windows：`.venv\Scripts\activate`
+* macOS / Linux：`source .venv/bin/activate`
 
-这是代码里面引用的。
+激活后，命令行前面通常会出现 `(.venv)`。
 
+## 安装
+
+```
+python -m pip install requests
+```
+
+这会安装网络请求库 `requests`。第二部分金融科技课会用到它。
+
+升级 pip 本身：
+
+```
+python -m pip install -U pip
+```
+
+## 在代码里引用
 
 ```
 import requests
 ```
+
+这是 Python 代码，不是命令行。
+
+## 查看已安装的包
+
+```
+python -m pip list
+```
+
+后面做金融科技练习时，还会安装 `pandas`、`matplotlib` 等库。仍然在虚拟环境里用 `python -m pip install` 安装。
