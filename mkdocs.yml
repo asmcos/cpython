@@ -12,6 +12,7 @@ nav:
     - 开始: start.md
     - 变量: variables.md
     - 字符串: string.md
+    - 字符串函数: string_func.md
     - 列表: list.md
     - 元组: tuple.md
     - 字典: dict.md
@@ -23,7 +24,6 @@ nav:
     - 模块: module.md
     - 安装模块（pip / venv）: pip.md
     - 类: class.md
-    - 字符串函数: string_func.md
     - 列表函数: list_func.md
     - 时间: time.md
     - 文件处理: file.md
