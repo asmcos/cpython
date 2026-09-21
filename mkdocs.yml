@@ -14,6 +14,7 @@ nav:
     - 字符串: string.md
     - 字符串函数: string_func.md
     - 列表: list.md
+    - 列表函数: list_func.md
     - 元组: tuple.md
     - 字典: dict.md
     - range: range.md
