@@ -145,7 +145,7 @@ jerry
 spike
 ~~~
 
-如果同时需要下标和值，用 `enumerate`：
+如果同时需要下标和值，用 `enumerate`。它是内置函数，括号里能放哪些类型，见 [for 循环](for.md)。
 
 ~~~
 for i, name in enumerate(l):
