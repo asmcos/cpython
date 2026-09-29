@@ -25,7 +25,6 @@ nav:
     - 模块: module.md
     - 安装模块（pip / venv）: pip.md
     - 类: class.md
-    - 列表函数: list_func.md
     - 时间: time.md
     - 文件处理: file.md
     - 错误和异常: error_except.md
