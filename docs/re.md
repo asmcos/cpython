@@ -88,3 +88,5 @@ print(re.findall(r":\d?", "qq:"))
 `?` 最多再跟 1 个数字。
 
 处理公告、交易流水、不规则文本时会用到正则。入门先把 `findall` 和这几个符号练熟。
+
+用 `python examples/re_demo.py` 运行本节的例子。下一节学习 [常用内置函数](built_in_func.md)。

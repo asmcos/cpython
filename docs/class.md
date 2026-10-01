@@ -80,3 +80,5 @@ print(c.get_name())
 ```
 
 创建对象时把名字传进去，以后也可以用 `set_name` 改掉。
+
+用 `python examples/class_demo.py` 运行本节的例子。下一节学习 [时间](time.md)。

@@ -77,3 +77,5 @@ True
 ```
 
 想看完整名单，在交互环境里输入 `dir(__builtins__)`，或打开官方文档的 Built-in Functions。
+
+用 `python examples/built_in_func.py` 运行本节的例子。下一节学习 [调试](debug.md)。
