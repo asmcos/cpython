@@ -227,3 +227,5 @@ abcdef 的长度是 6
 ```
 
 拆开、去空格、查找、替换，见下一节 [字符串函数](string_func.md)。
+
+用 `python examples/string_demo.py` 运行本节的例子。

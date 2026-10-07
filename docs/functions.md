@@ -278,6 +278,64 @@ show(name="Jike", age=20)
 
 入门先把普通参数、默认值和 `return` 写熟。读到别人代码里的 `*args`、`**kwargs`，就是这两种收集方式，名字可以自己起，`*` 和 `**` 才是关键。
 
+## 匿名函数：lambda
+
+有些函数很简单，只用一次，专门起个名字反而麻烦。这种可以写成一行匿名函数 `lambda`。
+
+`lambda` 的写法是 `lambda 参数: 返回值`。它没有 `def`、没有函数名，也没有 `return` 关键字——冒号后面的表达式结果就是返回值。
+
+```
+double = lambda x: x * 2
+print(double(5))
+```
+
+```
+10
+```
+
+和下面的普通函数效果一样，只是更短：
+
+```
+def double(x):
+    return x * 2
+```
+
+`lambda` 常和 `map`、`filter`、`sorted` 一起用。比如按某个条件过滤：
+
+```
+nums = [1, 2, 3, 4, 5, 6]
+evens = list(filter(lambda x: x % 2 == 0, nums))
+print(evens)
+```
+
+```
+[2, 4, 6]
+```
+
+`filter` 的第一个参数是"用来判断的函数"，这里用 `lambda x: x % 2 == 0` 表示"x 能被 2 整除"。`sorted` 也可以用 `key=lambda` 指定按什么排：
+
+```
+words = ["apple", "banana", "pear"]
+print(sorted(words, key=lambda w: len(w)))
+```
+
+```
+['pear', 'apple', 'banana']
+```
+
+`lambda` 也能接收多个参数，例如按两个字段排序：
+
+```
+pairs = [("apple", 3), ("pear", 1), ("banana", 2)]
+print(sorted(pairs, key=lambda p: p[1]))
+```
+
+```
+[('pear', 1), ('banana', 2), ('apple', 3)]
+```
+
+**什么时候用 lambda：** 函数体只有一行表达式、又要作为参数传给别人时，用 lambda 最简洁。逻辑超过一行，或者要复用多次，还是用 `def` 起个名字更清楚。
+
 ## 常见坑
 
 **打印了，却没有返回。** 函数里只有 `print` 时，外面接到的是 `None`，不能拿去继续计算。需要结果就写 `return`。
@@ -331,5 +389,6 @@ print(add_item(2))
 * 没默认值的参数放前面，调用时也可以用 `名字=值`
 * 函数内部的新名字外面看不见；列表这类对象可以在函数里被原地修改
 * 默认参数不要用 `[]`、`{}` 这种会变的值
+* 简单的一次性函数可以用 `lambda 参数: 返回值`，常配合 `map` / `filter` / `sorted` 使用
 
 下一节学习 [模块](module.md)。用 `python examples/functions.py` 运行本节的例子。

@@ -113,3 +113,22 @@ def add_item_ok(item, bucket=None):
 
 print(add_item_ok(1))
 print(add_item_ok(2))
+
+print("--- 匿名函数 lambda ---")
+
+double = lambda x: x * 2
+print(double(5))
+
+def double_def(x):
+    return x * 2
+print(double_def(5))
+
+nums = [1, 2, 3, 4, 5, 6]
+evens = list(filter(lambda x: x % 2 == 0, nums))
+print(evens)
+
+words = ["apple", "banana", "pear"]
+print(sorted(words, key=lambda w: len(w)))
+
+pairs = [("apple", 3), ("pear", 1), ("banana", 2)]
+print(sorted(pairs, key=lambda p: p[1]))

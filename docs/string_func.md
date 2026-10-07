@@ -124,3 +124,5 @@ print(f"你好，{raw.strip().title()}")
 ```
 
 列表上的 `append`、`pop` 见 [列表函数](list_func.md)。
+
+用 `python examples/string_func_demo.py` 运行本节的例子。
