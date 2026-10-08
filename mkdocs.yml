@@ -3,6 +3,15 @@ site_url: https://jeapedu.com
 site_description: 给大学生的 Python 3.12 入门教程，以及金融科技学生学习大纲
 theme:
   name: material
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
 nav:
   - 首页: index.md
   - 第一部分 · 大学生 Python 入门:
@@ -33,12 +42,19 @@ nav:
     - 常用内置函数: built_in_func.md
     - 调试: debug.md
   - 第二部分 · 金融科技学习大纲:
-    - 大纲总览: fintech/index.md
-    - 十六周进度: fintech/week.md
-    - 数据处理（NumPy / Pandas）: fintech/numpy_pandas.md
+    - 大纲与十六周进度: fintech/index.md
+    - 数据处理:
+      - NumPy 数组: fintech/numpy.md
+      - 用数组算收益率: fintech/numpy_returns.md
+      - Series 与 DataFrame: fintech/pandas_frame.md
+      - 读表、筛选和清洗: fintech/pandas_io.md
+      - 分组汇总: fintech/pandas_group.md
     - 金融数据获取: fintech/data.md
     - 可视化与时间序列: fintech/viz.md
     - 金融计算: fintech/calc.md
+    - 投资组合与证券市场线: fintech/portfolio.md
+    - 期权定价: fintech/options.md
     - 量化分析入门: fintech/quant.md
+    - 收益分布与风险价值: fintech/risk.md
     - 网络接口（requests）: fintech/api.md
     - 学期项目: fintech/project.md
