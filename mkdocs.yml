@@ -5,6 +5,7 @@ theme:
   name: material
 
 markdown_extensions:
+  - admonition
   - pymdownx.arithmatex:
       generic: true
 
